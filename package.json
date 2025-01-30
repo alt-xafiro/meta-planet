@@ -1,0 +1,50 @@
+{
+  "private": true,
+  "license": "WTFPL",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "pnpm lint:eslint && pnpm lint:ts && pnpm lint:fsd",
+    "lint:eslint": "next lint",
+    "lint:ts": "tsc --noEmit",
+    "lint:fsd": "steiger ./src",
+    "format": "prettier --write --ignore-unknown .",
+    "format:check": "prettier --check --ignore-unknown .",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky"
+  },
+  "engines": {
+    "node": "22",
+    "pnpm": "9"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "next": "15.1.6",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "sharp": "0.33.5"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "19.6.1",
+    "@commitlint/config-conventional": "19.6.0",
+    "@commitlint/types": "19.5.0",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.19.0",
+    "@trivago/prettier-plugin-sort-imports": "5.2.2",
+    "@types/node": "22.12.0",
+    "@types/react": "19.0.8",
+    "@types/react-dom": "19.0.3",
+    "autoprefixer": "10.4.20",
+    "eslint": "9.19.0",
+    "eslint-config-next": "15.1.6",
+    "eslint-config-prettier": "10.0.1",
+    "husky": "9.1.7",
+    "postcss": "8.5.1",
+    "prettier": "3.4.2",
+    "prettier-plugin-tailwindcss": "0.6.11",
+    "steiger": "0.5.5",
+    "tailwindcss": "3.4.17",
+    "typescript": "5.7.3"
+  }
+}

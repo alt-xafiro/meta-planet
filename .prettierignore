@@ -1,0 +1,7 @@
+.vscode
+node_modules
+/.next/
+/out/
+/build
+.vercel
+pnpm-lock.yaml

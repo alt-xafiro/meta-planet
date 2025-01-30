@@ -1,0 +1,37 @@
+{
+  "plugins": ["prettier-plugin-tailwindcss"],
+  "htmlWhitespaceSensitivity": "strict",
+  "quoteProps": "consistent",
+  "trailingComma": "none",
+  "overrides": [
+    {
+      "files": "*.{js,jsx,ts,tsx,mjs,mts,cjs}",
+      "options": {
+        "bracketSameLine": false,
+        "singleQuote": true,
+        "jsxSingleQuote": false,
+        "plugins": [
+          "@trivago/prettier-plugin-sort-imports",
+          "prettier-plugin-tailwindcss"
+        ],
+        "importOrder": [
+          "<THIRD_PARTY_MODULES>",
+          "^(next/(.*)$)|^next$",
+          "^(react/(.*)$)|^react$",
+          "^@app$",
+          "^@pages/(.*)$",
+          "^@widgets/(.*)$",
+          "^@features/(.*)$",
+          "^@entities/(.*)$",
+          "^@shared/(.*)$",
+          "^@@/(.*)$",
+          "^[./]+[a-z_]",
+          "^[./]+[A-Z_]",
+          "^[./]"
+        ],
+        "importOrderSeparation": true,
+        "importOrderSortSpecifiers": true
+      }
+    }
+  ]
+}
