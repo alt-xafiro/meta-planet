@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Etheron",
+    "galaxy": "Andromeda-IV",
+    "diameter": 16400,
+    "dayLength": 26,
+    "avgTemperature": [-20, 0],
+    "climate": "Polar",
+    "image": "etheron.png"
+  },
+  {
+    "name": "Lumenara",
+    "galaxy": "Andromeda-IV",
+    "diameter": 11540,
+    "dayLength": 56,
+    "avgTemperature": [10, 30],
+    "climate": "Tropical",
+    "image": "lumenara.png"
+  },
+  {
+    "name": "Theronix",
+    "galaxy": "Sombrero",
+    "diameter": 56780,
+    "dayLength": 12,
+    "avgTemperature": [60, 90],
+    "climate": "Tropical",
+    "image": "theronix.png"
+  },
+  {
+    "name": "Orionis",
+    "galaxy": "Virgo A",
+    "diameter": 120780,
+    "dayLength": 4,
+    "avgTemperature": [10, 40],
+    "climate": "Temperate",
+    "image": "orionis.png"
+  }
+]
