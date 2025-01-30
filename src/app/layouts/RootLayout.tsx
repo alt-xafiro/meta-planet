@@ -14,7 +14,7 @@ export function RootLayout({
       <body
         className={clsx(
           aBeeZee.className,
-          'h-full min-h-full w-full min-w-[360px]',
+          'h-full min-h-full w-full min-w-[360px] pb-[20px] pl-[20px] pr-[20px] lg:pb-[40px] lg:pl-[40px] lg:pr-[40px]',
           'break-words bg-blue-950 text-white'
         )}
       >
