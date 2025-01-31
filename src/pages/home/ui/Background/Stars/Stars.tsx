@@ -29,7 +29,7 @@ export function Stars({ className }: StarsProps) {
             'absolute -left-1/2 -top-1/2',
             'h-[200%] w-[200%]',
             'bg-stars-image bg-[length:1002px_1033px] bg-center bg-repeat',
-            'animate-infinite-sliding transition-transform duration-1000 ease-[cubic-bezier(0.22,_1,_0.36,_1)]'
+            'animate-infinite-sliding transition-transform duration-1000 ease-[cubic-bezier(0.22,_1,_0.36,_1)] will-change-[transform,_background-position]'
           )}
           ref={starsRef}
         ></div>
