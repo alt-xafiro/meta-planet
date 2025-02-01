@@ -9,7 +9,7 @@ export function Space({ className }: SpaceProps) {
     <div className={className}>
       <div
         className={clsx(
-          'fixed bottom-0 left-0 right-0 top-0 -z-[9999]',
+          'fixed bottom-0 left-0 right-0 top-0',
           'bg-gradient-space'
         )}
       ></div>
