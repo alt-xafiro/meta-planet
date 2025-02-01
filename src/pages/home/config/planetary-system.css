@@ -1,0 +1,31 @@
+.planetary-system {
+  --microplanet-1-size: 7%;
+  --microplanet-1-position: 37%;
+  --microplanet-1-duration: 25s;
+  --microplanet-1-start: 275deg;
+
+  --microplanet-2-size: 8.5%;
+  --microplanet-2-position: 49%;
+  --microplanet-2-duration: 29s;
+  --microplanet-2-start: 38deg;
+
+  --microplanet-3-size: 7.5%;
+  --microplanet-3-position: 62%;
+  --microplanet-3-duration: 46s;
+  --microplanet-3-start: 321deg;
+
+  --microplanet-4-size: 4%;
+  --microplanet-4-position: 73.5%;
+  --microplanet-4-duration: 76s;
+  --microplanet-4-start: 149deg;
+
+  --microplanet-5-size: 8.2%;
+  --microplanet-5-position: 85%;
+  --microplanet-5-duration: 104s;
+  --microplanet-5-start: 99deg;
+
+  --microplanet-6-size: 3.5%;
+  --microplanet-6-position: 99.75%;
+  --microplanet-6-duration: 153s;
+  --microplanet-6-start: 250deg;
+}

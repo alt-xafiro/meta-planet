@@ -2,8 +2,6 @@ import clsx from 'clsx';
 
 import { CustomComponentProps } from '@shared/lib';
 
-import './bg-image-orbits.css';
-
 type OrbitsProps = CustomComponentProps;
 
 export function Orbits({ className }: OrbitsProps) {
