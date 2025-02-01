@@ -18,12 +18,7 @@ export function Stars({ className }: StarsProps) {
 
   return (
     <>
-      <div
-        className={clsx(
-          className,
-          'absolute left-0 right-0 h-full w-full overflow-hidden'
-        )}
-      >
+      <div className={clsx(className, 'fixed bottom-0 left-0 right-0 top-0')}>
         <div
           className={clsx(
             'absolute -left-1/2 -top-1/2',
