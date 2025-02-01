@@ -2,6 +2,7 @@ import clsx from 'clsx';
 
 import { CustomComponentProps } from '@shared/lib';
 
+import { PlanetarySystem } from './PlanetarySystem/PlanetarySystem';
 import { Space } from './Space';
 import { Stars } from './Stars/Stars';
 
@@ -18,6 +19,7 @@ export function Background({ className }: BackgroundProps) {
     >
       <Space className="z-0" />
       <Stars className="z-10" />
+      <PlanetarySystem className="z-20" />
     </div>
   );
 }
