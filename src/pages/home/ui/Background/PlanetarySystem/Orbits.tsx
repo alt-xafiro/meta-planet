@@ -9,7 +9,7 @@ export function Orbits({ className }: OrbitsProps) {
     <div
       className={clsx(
         className,
-        'absolute bottom-0 left-0 h-full w-full',
+        'absolute left-0 top-0 h-full w-full',
         'bg-image-orbits bg-contain bg-center bg-no-repeat'
       )}
     ></div>
