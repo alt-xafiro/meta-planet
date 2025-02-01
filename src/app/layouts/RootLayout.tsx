@@ -10,7 +10,7 @@ export function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full min-h-full">
+    <html lang="en" className="flex min-h-full">
       <body
         className={clsx(
           aBeeZee.className,
