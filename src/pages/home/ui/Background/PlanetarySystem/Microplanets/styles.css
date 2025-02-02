@@ -33,7 +33,7 @@
   animation-duration: var(--microplanet-2-orbit-duration),
     var(--microplanet-2-bubble-duration);
   animation-timing-function: linear;
-  animation-direction: alternate;
+  animation-direction: normal, alternate;
 }
 
 .microplanet-3 {
@@ -47,7 +47,7 @@
   animation-duration: var(--microplanet-4-orbit-duration),
     var(--microplanet-3-vibrate-duration);
   animation-timing-function: linear;
-  animation-direction: alternate;
+  animation-direction: normal, alternate;
 }
 
 .microplanet-4 {
@@ -61,7 +61,7 @@
   animation-duration: var(--microplanet-4-orbit-duration),
     var(--microplanet-4-vibrate-duration);
   animation-timing-function: linear;
-  animation-direction: alternate;
+  animation-direction: normal, alternate;
 }
 
 .microplanet-5 {
