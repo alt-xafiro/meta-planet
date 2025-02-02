@@ -2,8 +2,10 @@ import clsx from 'clsx';
 
 import { CustomComponentProps } from '@shared/lib';
 
+import '../../config/parallax.css';
+
 import { PlanetarySystem } from './PlanetarySystem/PlanetarySystem';
-import { Space } from './Space';
+import { Space } from './Space/Space';
 import { Stars } from './Stars/Stars';
 
 type BackgroundProps = CustomComponentProps;

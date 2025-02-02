@@ -1,0 +1,9 @@
+:root {
+  --parallax-stars-resistance: 20;
+  --parallax-stars-delay: 1000ms;
+  --parallax-stars-ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --parallax-planetary-system-resistance: 12;
+  --parallax-planetary-system-delay: var(--parallax-stars-delay);
+  --parallax-planetary-system-ease: var(--parallax-stars-ease);
+}
