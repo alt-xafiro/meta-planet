@@ -169,60 +169,60 @@
 
 @keyframes orbit-1 {
   0% {
-    transform: translate(-50%, -50%)
+    transform: translate3d(-50%, -50%, 0)
       rotate(calc(var(--microplanet-1-start) + 360deg));
   }
   100% {
-    transform: translate(-50%, -50%) rotate(var(--microplanet-1-start));
+    transform: translate3d(-50%, -50%, 0) rotate(var(--microplanet-1-start));
   }
 }
 
 @keyframes orbit-2 {
   0% {
-    transform: translate(-50%, -50%)
+    transform: translate3d(-50%, -50%, 0)
       rotate(calc(var(--microplanet-2-start) + 360deg));
   }
   100% {
-    transform: translate(-50%, -50%) rotate(var(--microplanet-2-start));
+    transform: translate3d(-50%, -50%, 0) rotate(var(--microplanet-2-start));
   }
 }
 
 @keyframes orbit-3 {
   0% {
-    transform: translate(-50%, -50%)
+    transform: translate3d(-50%, -50%, 0)
       rotate(calc(var(--microplanet-3-start) + 360deg));
   }
   100% {
-    transform: translate(-50%, -50%) rotate(var(--microplanet-3-start));
+    transform: translate3d(-50%, -50%, 0) rotate(var(--microplanet-3-start));
   }
 }
 
 @keyframes orbit-4 {
   0% {
-    transform: translate(-50%, -50%)
+    transform: translate3d(-50%, -50%, 0)
       rotate(calc(var(--microplanet-4-start) + 360deg));
   }
   100% {
-    transform: translate(-50%, -50%) rotate(var(--microplanet-4-start));
+    transform: translate3d(-50%, -50%, 0) rotate(var(--microplanet-4-start));
   }
 }
 
 @keyframes orbit-5 {
   0% {
-    transform: translate(-50%, -50%)
+    transform: translate3d(-50%, -50%, 0)
       rotate(calc(var(--microplanet-5-start) + 360deg));
   }
   100% {
-    transform: translate(-50%, -50%) rotate(var(--microplanet-5-start));
+    transform: translate3d(-50%, -50%, 0) rotate(var(--microplanet-5-start));
   }
 }
 
 @keyframes orbit-6 {
   0% {
-    transform: translate(-50%, -50%)
+    transform: translate3d(-50%, -50%, 0)
       rotate(calc(var(--microplanet-6-start) + 360deg));
   }
   100% {
-    transform: translate(-50%, -50%) rotate(var(--microplanet-6-start));
+    transform: translate3d(-50%, -50%, 0) rotate(var(--microplanet-6-start));
   }
 }

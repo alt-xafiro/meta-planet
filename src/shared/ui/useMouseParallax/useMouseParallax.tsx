@@ -50,7 +50,7 @@ export function useMouseParallax({
           mouseOffsetY
         );
 
-        node.style.transform = `translate(${translateX}, ${translateY})`;
+        node.style.transform = `translate3d(${translateX}, ${translateY}, 0)`;
       };
     };
 

@@ -33,7 +33,7 @@ export function PlanetarySystem({ className }: PlanetarySystemProps) {
         className,
         'fixed bottom-[var(--planetary-system-bottom)] left-[var(--planetary-system-left)] translate-x-[calc(var(--planetary-system-base-translate-x))] translate-y-[calc(var(--planetary-system-base-translate-y))]',
         'aspect-square w-full min-w-[640px] lg:w-[90%]',
-        'transition-transform duration-[var(--parallax-planetary-system-delay)] ease-[var(--parallax-planetary-system-ease)] will-change-transform'
+        'transform-gpu transition-transform duration-[var(--parallax-planetary-system-delay)] ease-[var(--parallax-planetary-system-ease)] will-change-transform'
       )}
       ref={planetarySystemRef}
     >
