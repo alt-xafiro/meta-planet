@@ -12,26 +12,21 @@
   --microplanet-1-position: 37%;
   --microplanet-1-start: 275deg;
   --microplanet-1-orbit-duration: 25s;
-  --microplanet-1-pulsate-duration: 4s;
-  --microplanet-1-pulsate-ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
   --microplanet-2-size: 8.5%;
   --microplanet-2-position: 49%;
   --microplanet-2-start: 38deg;
   --microplanet-2-orbit-duration: 29s;
-  --microplanet-2-bubble-duration: 4s;
 
   --microplanet-3-size: 7.5%;
   --microplanet-3-position: 62%;
   --microplanet-3-start: 321deg;
   --microplanet-3-orbit-duration: 46s;
-  --microplanet-3-vibrate-duration: 1s;
 
   --microplanet-4-size: 4%;
   --microplanet-4-position: 73.5%;
   --microplanet-4-start: 149deg;
   --microplanet-4-orbit-duration: 76s;
-  --microplanet-4-vibrate-duration: 1s;
 
   --microplanet-5-size: 8.2%;
   --microplanet-5-position: 85%;
@@ -42,5 +37,4 @@
   --microplanet-6-position: 99.75%;
   --microplanet-6-start: 250deg;
   --microplanet-6-orbit-duration: 153s;
-  --microplanet-6-freeze-duration: 20s;
 }

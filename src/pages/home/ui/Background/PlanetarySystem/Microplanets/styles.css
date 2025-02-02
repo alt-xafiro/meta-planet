@@ -6,7 +6,7 @@
 
   animation-fill-mode: both;
   animation-iteration-count: infinite;
-  will-change: transform, filter;
+  will-change: transform;
 }
 
 .microplanet-1 {
@@ -16,10 +16,9 @@
   background-image: url("./planet-1.svg");
   background-size: var(--microplanet-1-size) var(--microplanet-1-size);
 
-  animation-name: orbit-1, pulsate;
-  animation-duration: var(--microplanet-1-orbit-duration),
-    var(--microplanet-1-pulsate-duration);
-  animation-timing-function: linear, var(--microplanet-1-pulsate-ease);
+  animation-name: orbit-1;
+  animation-duration: var(--microplanet-1-orbit-duration);
+  animation-timing-function: linear;
 }
 
 .microplanet-2 {
@@ -29,11 +28,9 @@
   background-image: url("./planet-2.svg");
   background-size: var(--microplanet-2-size) var(--microplanet-2-size);
 
-  animation-name: orbit-2, bubble;
-  animation-duration: var(--microplanet-2-orbit-duration),
-    var(--microplanet-2-bubble-duration);
+  animation-name: orbit-2;
+  animation-duration: var(--microplanet-2-orbit-duration);
   animation-timing-function: linear;
-  animation-direction: normal, alternate;
 }
 
 .microplanet-3 {
@@ -43,11 +40,9 @@
   background-image: url("./planet-3.svg");
   background-size: var(--microplanet-3-size) var(--microplanet-3-size);
 
-  animation-name: orbit-3, vibrate;
-  animation-duration: var(--microplanet-4-orbit-duration),
-    var(--microplanet-3-vibrate-duration);
+  animation-name: orbit-3;
+  animation-duration: var(--microplanet-4-orbit-duration);
   animation-timing-function: linear;
-  animation-direction: normal, alternate;
 }
 
 .microplanet-4 {
@@ -57,11 +52,9 @@
   background-image: url("./planet-4.svg");
   background-size: var(--microplanet-4-size) var(--microplanet-4-size);
 
-  animation-name: orbit-4, vibrate;
-  animation-duration: var(--microplanet-4-orbit-duration),
-    var(--microplanet-4-vibrate-duration);
+  animation-name: orbit-4;
+  animation-duration: var(--microplanet-4-orbit-duration);
   animation-timing-function: linear;
-  animation-direction: normal, alternate;
 }
 
 .microplanet-5 {
@@ -83,88 +76,9 @@
   background-image: url("./planet-6.svg");
   background-size: var(--microplanet-6-size) var(--microplanet-6-size);
 
-  animation-name: orbit-6, freeze;
-  animation-duration: var(--microplanet-6-orbit-duration),
-    var(--microplanet-6-freeze-duration);
+  animation-name: orbit-6;
+  animation-duration: var(--microplanet-6-orbit-duration);
   animation-timing-function: linear;
-}
-
-@keyframes pulsate {
-  0% {
-    filter: brightness(1.5);
-  }
-  10% {
-    filter: brightness(2);
-  }
-  20% {
-    filter: brightness(1.5);
-  }
-  30% {
-    filter: brightness(2);
-  }
-  40% {
-    filter: brightness(1.5);
-  }
-  50% {
-    filter: brightness(2);
-  }
-  60% {
-    filter: brightness(1.5);
-  }
-  70% {
-    filter: brightness(2);
-  }
-  80% {
-    filter: brightness(2.5);
-  }
-  83% {
-    filter: brightness(1.5);
-  }
-  85% {
-    filter: brightness(3) blur(1px);
-  }
-  100% {
-    filter: brightness(1.5);
-  }
-}
-
-@keyframes vibrate {
-  0% {
-    filter: brightness(1);
-  }
-  100% {
-    filter: brightness(1.2) blur(1px);
-  }
-}
-
-@keyframes bubble {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-    filter: hue-rotate(100deg);
-  }
-}
-
-@keyframes freeze {
-  0% {
-    filter: saturate(50%);
-  }
-  30% {
-    filter: saturate(60%);
-  }
-  50% {
-    filter: saturate(100%);
-  }
-  85% {
-    filter: saturate(100%);
-  }
-  90% {
-    filter: saturate(60%);
-  }
-  100% {
-    filter: saturate(50%);
-  }
 }
 
 @keyframes orbit-1 {
