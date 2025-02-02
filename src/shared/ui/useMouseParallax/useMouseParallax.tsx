@@ -13,7 +13,7 @@ export function useMouseParallax({
   ref,
   baseTranslateX = '0px',
   baseTranslateY = '0px',
-  resistance = '0'
+  resistance = '1'
 }: UseParallax) {
   useEffect(() => {
     if (!ref || !ref.current) return;
