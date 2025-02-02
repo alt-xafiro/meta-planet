@@ -1,9 +1,17 @@
 :root {
-  --parallax-stars-resistance: 20;
-  --parallax-stars-delay: 1000ms;
-  --parallax-stars-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --parallax-stars-1-resistance: 45;
+  --parallax-stars-1-delay: 1000ms;
+  --parallax-stars-1-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
-  --parallax-planetary-system-resistance: 12;
-  --parallax-planetary-system-delay: var(--parallax-stars-delay);
-  --parallax-planetary-system-ease: var(--parallax-stars-ease);
+  --parallax-stars-2-resistance: 35;
+  --parallax-stars-2-delay: var(--parallax-stars-1-delay);
+  --parallax-stars-2-ease: var(--parallax-stars-1-ease);
+
+  --parallax-stars-3-resistance: 25;
+  --parallax-stars-3-delay: var(--parallax-stars-1-delay);
+  --parallax-stars-3-ease: var(--parallax-stars-1-ease);
+
+  --parallax-planetary-system-resistance: 10;
+  --parallax-planetary-system-delay: var(--parallax-stars-1-delay);
+  --parallax-planetary-system-ease: var(--parallax-stars-1-ease);
 }

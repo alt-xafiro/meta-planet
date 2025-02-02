@@ -3,7 +3,7 @@
 import { RefObject, useEffect } from 'react';
 
 type UseParallax = {
-  ref: RefObject<HTMLDivElement | null>;
+  ref: RefObject<HTMLElement | null>;
   baseTranslateX?: string;
   baseTranslateY?: string;
   resistance?: string;
