@@ -1,4 +1,7 @@
 {
+  "name": "Meta Planet",
+  "background_color": "#141d33",
+  "theme_color": "#141d33",
   "icons": [
     {
       "src": "icon-192x192.png",
