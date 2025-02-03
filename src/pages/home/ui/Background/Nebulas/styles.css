@@ -1,0 +1,20 @@
+@supports (background: paint(houdini)) or
+  ((-webkit-hyphens: none) and (font-size-adjust: from-font)) or
+  ((-moz-appearance: none) and (width: 1rlh)) {
+  @property --nebula-gradient-from {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+  }
+
+  @property --nebula-gradient-to {
+    syntax: "<color>";
+    inherits: true;
+    initial-value: transparent;
+  }
+}
+
+:root {
+  --nebula-gradient-from: transparent;
+  --nebula-gradient-to: transparent;
+}

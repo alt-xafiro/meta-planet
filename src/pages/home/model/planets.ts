@@ -12,6 +12,10 @@ export type Planet = {
   avgTemperature: [number, number];
   climate: Climate;
   image: string;
+  nebulasGradient: {
+    from: string;
+    to: string;
+  };
 };
 
 export const planets = planetsJson as unknown as Planet[];
