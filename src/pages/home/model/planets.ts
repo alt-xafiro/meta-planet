@@ -4,7 +4,7 @@ type Galaxy = 'Andromeda-IV' | 'Sombrero' | 'Virgo A';
 
 type Climate = 'Polar' | 'Temperate' | 'Tropical';
 
-export type Planet = {
+export type PlanetData = {
   name: string;
   galaxy: Galaxy;
   diameter: number;
@@ -18,4 +18,10 @@ export type Planet = {
   };
 };
 
-export const planets = planetsJson as unknown as Planet[];
+export const planets = planetsJson as unknown as PlanetData[];
+
+export const getPlanet = (name: string) =>
+  planets.find((planet) => name === planet.name);
+
+export const getPlanetIndex = (name: string) =>
+  planets.findIndex((planet) => name === planet.name);
