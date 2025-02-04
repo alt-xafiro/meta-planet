@@ -16,7 +16,8 @@ export function RootLayout({
           aBeeZee.className,
           'relative',
           'min-h-full w-full min-w-[360px] pb-[20px] pl-[20px] pr-[20px] lg:pb-[40px] lg:pl-[40px] lg:pr-[40px]',
-          'break-words bg-space-600 text-white'
+          'break-words bg-space-600 text-white',
+          'scrollbar scrollbar-track-space-800 scrollbar-thumb-space-700'
         )}
       >
         {children}
