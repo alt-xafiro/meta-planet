@@ -2,6 +2,8 @@
 
 import clsx from 'clsx';
 
+import { useRef } from 'react';
+
 import { StarsConfig } from '@pages/home/config/stars';
 
 import { CustomComponentProps } from '@shared/lib';
@@ -11,11 +13,17 @@ import { StarsLayer } from './StarsLayer/StarsLayer';
 type StarsProps = CustomComponentProps;
 
 export function Stars({ className }: StarsProps) {
+  const starsWrapperRef = useRef<HTMLDivElement>(null);
+
   return (
-    <div className={clsx(className, 'fixed bottom-0 left-0 h-screen w-full')}>
+    <div
+      className={clsx(className, 'fixed bottom-0 left-0 h-screen w-full')}
+      ref={starsWrapperRef}
+    >
       {[1, 2, 3].map((layer) => (
         <StarsLayer
           key={layer}
+          wrapperRef={starsWrapperRef}
           offScreenRatio={StarsConfig.OFFSCREEN_RATIO}
           min={StarsConfig.Layers[layer - 1].MIN}
           max={StarsConfig.Layers[layer - 1].MAX}

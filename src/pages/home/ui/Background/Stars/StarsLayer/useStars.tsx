@@ -19,10 +19,12 @@ export type UseStarsConfig = {
 
 type UseStars = UseStarsConfig & {
   canvasRef: RefObject<HTMLCanvasElement | null>;
+  wrapperRef: RefObject<HTMLElement | null>;
 };
 
 export function useStars({
   canvasRef,
+  wrapperRef,
   offScreenRatio,
   min,
   max,
@@ -33,12 +35,18 @@ export function useStars({
   luminosityMin
 }: UseStars) {
   useEffect(() => {
-    if (!canvasRef || !canvasRef.current) return;
+    if (!canvasRef || !canvasRef.current || !wrapperRef || !wrapperRef.current)
+      return;
 
     const canvasNode = canvasRef.current;
     const ctx = canvasNode.getContext('2d')!;
 
-    const DPIRatio = Math.max(window.devicePixelRatio, 1);
+    const wrapperNode = wrapperRef.current;
+
+    const getDPIRatio = (min?: number) =>
+      min === undefined
+        ? window.devicePixelRatio
+        : Math.max(window.devicePixelRatio, min);
 
     const starsConfig = {
       offScreenRatio,
@@ -80,39 +88,40 @@ export function useStars({
     let starsCount: number;
 
     const setStarsCount = () => {
+      const DPIRatio = getDPIRatio(1);
+
       starsCount = clamp(
-        starsConfig.minStarsCount * DPIRatio,
+        starsConfig.minStarsCount * Math.min(DPIRatio, 2),
         Math.floor(
-          ((window.innerWidth * window.innerHeight * DPIRatio) /
+          ((wrapperNode.offsetWidth *
+            wrapperNode.offsetHeight *
+            Math.min(DPIRatio, 2)) /
             starsConfig.starsLightness) *
             starsConfig.starsCountMultiplier
         ),
-        starsConfig.maxStarsCount * DPIRatio
+        starsConfig.maxStarsCount * Math.min(DPIRatio, 2)
       );
     };
 
-    const scaleCanvasToCurrentDPI = () => {
+    const setCansvasSize = () => {
+      const DPIRatio = getDPIRatio(1);
+
+      canvasConfig.width = wrapperNode.offsetWidth * offScreenRatio;
+      canvasConfig.height = wrapperNode.offsetHeight * offScreenRatio;
+      canvasConfig.center = {
+        x: canvasConfig.width / 2,
+        y: canvasConfig.height / 2
+      };
+
       canvasNode.width = canvasConfig.width * DPIRatio;
       canvasNode.height = canvasConfig.height * DPIRatio;
 
       canvasNode.style.width = `${canvasConfig.width}px`;
       canvasNode.style.height = `${canvasConfig.height}px`;
 
-      ctx.scale(DPIRatio, DPIRatio);
-    };
-
-    const setCansvasSize = () => {
-      canvasNode.width = window.innerWidth * offScreenRatio;
-      canvasNode.height = window.innerHeight * offScreenRatio;
-
-      canvasConfig.width = canvasNode.width;
-      canvasConfig.height = canvasNode.height;
-      canvasConfig.center = {
-        x: canvasConfig.width / 2,
-        y: canvasConfig.height / 2
-      };
-
-      scaleCanvasToCurrentDPI();
+      if (DPIRatio > 1) {
+        ctx.scale(DPIRatio, DPIRatio);
+      }
     };
 
     setCansvasSize();
@@ -173,6 +182,8 @@ export function useStars({
     const paintStars = () => {
       ctx.clearRect(0, 0, canvasConfig.width, canvasConfig.height);
 
+      const DPIRatio = getDPIRatio();
+
       for (const star of stars) {
         const starX =
           Math.cos(star.angle) * star.distance + canvasConfig.center.x;
@@ -225,6 +236,7 @@ export function useStars({
     max,
     min,
     ratio,
-    speed
+    speed,
+    wrapperRef
   ]);
 }
