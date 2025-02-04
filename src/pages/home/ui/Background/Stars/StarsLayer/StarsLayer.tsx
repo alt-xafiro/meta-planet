@@ -51,7 +51,7 @@ export function StarsLayer({
         className,
         'absolute -left-[10%] -top-[10%]',
         'h-[120vh] w-[120%]',
-        'transition-[height,_transform] will-change-transform'
+        'transition-transform will-change-transform'
       )}
       ref={starsRef}
     />
