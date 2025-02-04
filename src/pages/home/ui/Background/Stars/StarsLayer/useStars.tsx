@@ -38,7 +38,9 @@ export function useStars({
     const canvasNode = canvasRef.current;
     const ctx = canvasNode.getContext('2d')!;
 
-    const config = {
+    const DPIRatio = Math.max(window.devicePixelRatio, 1);
+
+    const starsConfig = {
       offScreenRatio,
       minStarsCount: min,
       maxStarsCount: max,
@@ -49,7 +51,7 @@ export function useStars({
       luminosityMin
     };
 
-    const canvas = {
+    const canvasConfig = {
       width: 0,
       height: 0,
       center: {
@@ -79,41 +81,45 @@ export function useStars({
 
     const setStarsCount = () => {
       starsCount = clamp(
-        config.minStarsCount,
+        starsConfig.minStarsCount * DPIRatio,
         Math.floor(
-          ((window.innerWidth * window.innerHeight) /
-            window.devicePixelRatio /
-            config.starsLightness) *
-            config.starsCountMultiplier
+          ((window.innerWidth * window.innerHeight * DPIRatio) /
+            starsConfig.starsLightness) *
+            starsConfig.starsCountMultiplier
         ),
-        config.maxStarsCount
+        starsConfig.maxStarsCount * DPIRatio
       );
+    };
+
+    const scaleCanvasToCurrentDPI = () => {
+      canvasNode.width = canvasConfig.width * DPIRatio;
+      canvasNode.height = canvasConfig.height * DPIRatio;
+
+      canvasNode.style.width = `${canvasConfig.width}px`;
+      canvasNode.style.height = `${canvasConfig.height}px`;
+
+      ctx.scale(DPIRatio, DPIRatio);
     };
 
     const setCansvasSize = () => {
       canvasNode.width = window.innerWidth * offScreenRatio;
       canvasNode.height = window.innerHeight * offScreenRatio;
 
-      const scale = Math.max(window.devicePixelRatio, 1);
+      canvasConfig.width = canvasNode.width;
+      canvasConfig.height = canvasNode.height;
+      canvasConfig.center = {
+        x: canvasConfig.width / 2,
+        y: canvasConfig.height / 2
+      };
 
-      canvas.width = canvasNode.width;
-      canvas.height = canvasNode.height;
-
-      canvasNode.width = canvas.width * scale;
-      canvasNode.height = canvas.height * scale;
-
-      canvasNode.style.width = `${canvas.width}px`;
-      canvasNode.style.height = `${canvas.height}px`;
-
-      ctx.scale(scale, scale);
-
-      canvas.center = { x: canvas.width / 2, y: canvas.height / 2 };
+      scaleCanvasToCurrentDPI();
     };
 
     setCansvasSize();
     setStarsCount();
 
-    const getCanvasLength = () => canvas.width / 2 + canvas.height / 2;
+    const getCanvasLength = () =>
+      canvasConfig.width / 2 + canvasConfig.height / 2;
 
     const setStarParameters = (
       star: Star,
@@ -121,8 +127,8 @@ export function useStars({
       fadeIn: number
     ) => {
       const luminosity = getRandomNumber(
-        config.luminosityMin,
-        config.luminosityMax
+        starsConfig.luminosityMin,
+        starsConfig.luminosityMax
       );
 
       star.angle = getRandomNumber(0, 2 * Math.PI);
@@ -149,7 +155,9 @@ export function useStars({
     const updateStars = () => {
       for (const star of stars) {
         star.distance +=
-          star.speed * config.starsSpeed * (star.distance / getCanvasLength());
+          star.speed *
+          starsConfig.starsSpeed *
+          (star.distance / getCanvasLength());
         star.fadeIn += 0.01;
 
         if (star.fadeIn > 1) {
@@ -163,23 +171,18 @@ export function useStars({
     };
 
     const paintStars = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, canvasConfig.width, canvasConfig.height);
 
       for (const star of stars) {
-        const starX = Math.cos(star.angle) * star.distance + canvas.center.x;
-        const starY = Math.sin(star.angle) * star.distance + canvas.center.y;
+        const starX =
+          Math.cos(star.angle) * star.distance + canvasConfig.center.x;
+        const starY =
+          Math.sin(star.angle) * star.distance + canvasConfig.center.y;
         const starTransparency =
           star.color.a * (star.distance / 100) * star.fadeIn;
 
         ctx.beginPath();
-        ctx.arc(
-          starX,
-          starY,
-          1 / window.devicePixelRatio,
-          0,
-          2 * Math.PI,
-          false
-        );
+        ctx.arc(starX, starY, 1 / DPIRatio, 0, 2 * Math.PI, false);
         ctx.fillStyle = `rgba(${star.color.r}, ${star.color.g}, ${star.color.b}, ${starTransparency})`;
         ctx.fill();
       }
