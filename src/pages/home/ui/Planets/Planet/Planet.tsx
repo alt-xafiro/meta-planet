@@ -73,7 +73,7 @@ export function Planet({ className, name, position }: PlanetProps) {
 
   const planetImageRef = useRef<HTMLImageElement>(null);
 
-  const { name: planetName, image, dropShadowColor } = getPlanetData(name)!;
+  const { image, dropShadowColor } = getPlanetData(name)!;
 
   usePlanetDropShadowColor(planetImageRef, dropShadowColor);
 
@@ -92,7 +92,7 @@ export function Planet({ className, name, position }: PlanetProps) {
       addRenderedPlanet(RenderPosition.AFTER_NEXT);
     }
 
-    setCurrentPlanetName(planetName);
+    setCurrentPlanetName(name);
   };
 
   const isDisabled =
@@ -121,7 +121,7 @@ export function Planet({ className, name, position }: PlanetProps) {
     >
       <Image
         src={`/images/planets/${image}`}
-        alt={`${planetName}.`}
+        alt={`${name}.`}
         width={1160}
         height={1160}
         priority
