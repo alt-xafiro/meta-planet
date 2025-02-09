@@ -113,13 +113,7 @@ export function Planet({ className, name, position }: PlanetProps) {
       ref={planetRef}
       onClick={handleClick}
       disabled={isDisabled}
-      initial={
-        position !== RenderPosition.CURRENT
-          ? (getPlanetKeyframes(position) as Target)
-          : {
-              scale: 0.8
-            }
-      }
+      initial={getPlanetKeyframes(position) as Target}
     >
       <Image
         src={`/images/planets/${image}`}
