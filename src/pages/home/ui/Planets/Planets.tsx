@@ -27,11 +27,16 @@ export function Planets({ className }: PlanetsProps) {
 
   return (
     <div
-      className={clsx(className, 'hidden', 'overflow-hidden', [
-        'w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center pb-[24px] pt-[24px]',
-        'sm:min-h-[calc(100%_-_var(--planet-data-height))]',
-        '3xl:pb-[40px] 3xl:pt-[40px]'
-      ])}
+      className={clsx(
+        className,
+        'hidden',
+        'overflow-x-hidden supports-[overflow-x:_clip]:overflow-x-clip',
+        [
+          'w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center pb-[24px] pt-[24px]',
+          'sm:min-h-[calc(100%_-_var(--planet-data-height))]',
+          '3xl:pb-[40px] 3xl:pt-[40px]'
+        ]
+      )}
       ref={planetsRef}
     >
       {renderedPlanets.map((renderedPlanet) => renderedPlanet.element)}

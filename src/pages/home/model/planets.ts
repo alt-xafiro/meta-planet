@@ -12,6 +12,7 @@ export type PlanetData = {
   avgTemperature: [number, number];
   climate: Climate;
   image: string;
+  dropShadowColor: string;
   planetarySystemCoordinates: {
     x: string;
     y: string;

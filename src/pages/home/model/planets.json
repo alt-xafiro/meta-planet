@@ -7,6 +7,7 @@
     "avgTemperature": [-20, 0],
     "climate": "Polar",
     "image": "etheron.png",
+    "dropShadowColor": "rgba(202, 43, 157, 0.5)",
     "planetarySystemCoordinates": {
       "x": "0%",
       "y": "0%"
@@ -24,6 +25,7 @@
     "avgTemperature": [10, 30],
     "climate": "Tropical",
     "image": "lumenara.png",
+    "dropShadowColor": "rgba(255, 184, 0, 0.3)",
     "planetarySystemCoordinates": {
       "x": "3%",
       "y": "0%"
@@ -41,6 +43,7 @@
     "avgTemperature": [60, 90],
     "climate": "Tropical",
     "image": "theronix.png",
+    "dropShadowColor": "rgba(5, 67, 37, 0.9)",
     "planetarySystemCoordinates": {
       "x": "3%",
       "y": "-3%"
@@ -58,6 +61,7 @@
     "avgTemperature": [10, 40],
     "climate": "Temperate",
     "image": "orionis.png",
+    "dropShadowColor": "rgba(1, 62, 119, 0.8)",
     "planetarySystemCoordinates": {
       "x": "-3%",
       "y": "-3%"

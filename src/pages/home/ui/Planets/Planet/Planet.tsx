@@ -11,7 +11,7 @@ import * as motion from 'motion/react-client';
 
 import Image from 'next/image';
 
-import { MouseEvent, useEffect } from 'react';
+import { MouseEvent, useEffect, useRef } from 'react';
 
 import { usePlanetsStore } from '@pages/home/model/store';
 
@@ -19,6 +19,7 @@ import { CustomComponentProps } from '@shared/lib';
 
 import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
 import { getPlanetData } from '../../../model/planets';
+import { usePlanetDropShadowColor } from './usePlanetDropShadowColor';
 
 const OPTIONS: AnimationOptions = {
   bounce: 0
@@ -71,7 +72,10 @@ export function Planet({ className, name, position }: PlanetProps) {
 
   const [planetRef, animate] = useAnimate<HTMLButtonElement>();
 
-  const { name: planetName, image } = getPlanetData(name)!;
+  const planetImageRef = useRef<HTMLImageElement>(null);
+
+
+  usePlanetDropShadowColor(planetImageRef, dropShadowColor);
 
   useEffect(() => {
     animate(planetRef.current, getPlanetKeyframes(position), OPTIONS);
@@ -122,7 +126,11 @@ export function Planet({ className, name, position }: PlanetProps) {
         height={1160}
         priority
         quality={95}
-        className="w-full max-w-[1160px] object-contain object-center"
+        className={clsx(
+          'w-full max-w-[1160px] object-contain object-center',
+          'supports-[overflow-x:_clip]:drop-shadow-[-5px_6px_30px_var(--planet-drop-shadow-color)]'
+        )}
+        ref={planetImageRef}
       />
     </motion.button>
   );
