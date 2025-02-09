@@ -15,6 +15,16 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "husky"
   },
+  "browserslist": [
+    ">0.3%",
+    "last 4 versions",
+    "not dead",
+    "Safari >= 15",
+    "iOS >= 15",
+    "Firefox ESR",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
   "engines": {
     "node": "22",
     "pnpm": "9"
