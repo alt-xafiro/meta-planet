@@ -4,9 +4,9 @@ import clsx from 'clsx';
 
 import { useEffect, useRef } from 'react';
 
-import { usePlanetsStore } from '@pages/home/model/store';
-
 import { CustomComponentProps } from '@shared/lib';
+
+import { usePlanetsStore } from '../../model/store';
 
 type PlanetsProps = CustomComponentProps;
 

@@ -4,12 +4,11 @@ import clsx from 'clsx';
 
 import { useRef } from 'react';
 
-import { getPlanetData } from '@pages/home/model/planets';
-
 import { CustomComponentProps } from '@shared/lib';
 import { useMouseParallax } from '@shared/ui';
 
 import '../../../config/nebulas.css';
+import { getPlanetData } from '../../../model/planets';
 import { usePlanetsStore } from '../../../model/store';
 import './styles.css';
 import { useSetNebulas } from './useSetNebulas';

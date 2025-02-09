@@ -4,13 +4,12 @@ import clsx from 'clsx';
 
 import { useRef } from 'react';
 
-import { getPlanetData } from '@pages/home/model/planets';
-import { usePlanetsStore } from '@pages/home/model/store';
-
 import { CustomComponentProps } from '@shared/lib';
 import { useMouseParallax } from '@shared/ui';
 
 import '../../../config/planetary-system.css';
+import { getPlanetData } from '../../../model/planets';
+import { usePlanetsStore } from '../../../model/store';
 import './styles.css';
 import { useMovePlanetarySystem } from './useMovePlanetarySystem';
 

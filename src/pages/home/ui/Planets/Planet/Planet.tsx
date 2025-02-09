@@ -13,12 +13,11 @@ import Image from 'next/image';
 
 import { MouseEvent, useEffect, useRef } from 'react';
 
-import { usePlanetsStore } from '@pages/home/model/store';
-
 import { CustomComponentProps } from '@shared/lib';
 
 import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
 import { getPlanetData } from '../../../model/planets';
+import { usePlanetsStore } from '../../../model/store';
 import { usePlanetDropShadowColor } from './usePlanetDropShadowColor';
 
 const OPTIONS: AnimationOptions = {

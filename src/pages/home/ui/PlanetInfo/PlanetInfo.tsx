@@ -4,15 +4,15 @@ import clsx from 'clsx';
 
 import { RefObject } from 'react';
 
-import { getPlanetData } from '@pages/home/model/planets';
-import { usePlanetsStore } from '@pages/home/model/store';
-
 import {
   CustomComponentProps,
   getFormattedDayLength,
   getFormattedDiameter,
   getFormattedTemperature
 } from '@shared/lib';
+
+import { getPlanetData } from '../../model/planets';
+import { usePlanetsStore } from '../../model/store';
 
 type PlanetInfoProps = CustomComponentProps & {
   ref?: RefObject<HTMLDivElement | null>;

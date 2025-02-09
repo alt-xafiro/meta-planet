@@ -4,9 +4,9 @@ import clsx from 'clsx';
 
 import { useRef } from 'react';
 
-import { StarsConfig } from '@pages/home/config/stars';
-
 import { CustomComponentProps } from '@shared/lib';
+
+import { StarsConfig } from '../../../config/stars';
 
 import { StarsLayer } from './StarsLayer/StarsLayer';
 

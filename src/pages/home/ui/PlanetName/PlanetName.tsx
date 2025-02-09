@@ -4,11 +4,11 @@ import clsx from 'clsx';
 
 import { RefObject } from 'react';
 
-import { getPlanetData } from '@pages/home/model/planets';
-import { usePlanetsStore } from '@pages/home/model/store';
-
 import { CustomComponentProps } from '@shared/lib';
 import { allerta } from '@shared/ui';
+
+import { getPlanetData } from '../../model/planets';
+import { usePlanetsStore } from '../../model/store';
 
 type PlanetNameProps = CustomComponentProps & {
   ref?: RefObject<HTMLHeadingElement | null>;
