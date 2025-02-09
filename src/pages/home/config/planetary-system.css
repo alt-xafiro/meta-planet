@@ -1,12 +1,11 @@
 :root {
   --planetary-system-left: 50%;
+  --planetary-system-top: 0;
   --planetary-system-bottom: 0;
   --planetary-system-base-translate-x: (
-    -50% - 70px + var(--planetary-system-offset-x)
+    -50% + var(--planetary-system-offset-x)
   );
-  --planetary-system-base-translate-y: (
-    50% - 200px + var(--planetary-system-offset-y)
-  );
+  --planetary-system-base-translate-y: (var(--planetary-system-offset-y));
 
   --microplanet-1-size: 7%;
   --microplanet-1-position: 37%;
@@ -37,4 +36,20 @@
   --microplanet-6-position: 99.75%;
   --microplanet-6-start: 17deg;
   --microplanet-6-orbit-duration: 153s;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --planetary-system-base-translate-y: (
+      50% - 25% + var(--planetary-system-offset-y)
+    );
+  }
+}
+
+@media (min-width: 1200px) {
+  :root {
+    --planetary-system-base-translate-y: (
+      50% - 10% + var(--planetary-system-offset-y)
+    );
+  }
 }

@@ -7,6 +7,10 @@
     "avgTemperature": [-20, 0],
     "climate": "Polar",
     "image": "etheron.png",
+    "planetarySystemCoordinates": {
+      "x": "0%",
+      "y": "0%"
+    },
     "nebulasGradient": {
       "from": "rgb(202, 43, 157, 0.4)",
       "to": "rgba(82, 0, 255, 0.4)"
@@ -20,6 +24,10 @@
     "avgTemperature": [10, 30],
     "climate": "Tropical",
     "image": "lumenara.png",
+    "planetarySystemCoordinates": {
+      "x": "3%",
+      "y": "0%"
+    },
     "nebulasGradient": {
       "from": "rgba(255, 184, 0, 0.3)",
       "to": "rgba(255, 138, 0, 0.3)"
@@ -33,6 +41,10 @@
     "avgTemperature": [60, 90],
     "climate": "Tropical",
     "image": "theronix.png",
+    "planetarySystemCoordinates": {
+      "x": "3%",
+      "y": "-3%"
+    },
     "nebulasGradient": {
       "from": "rgba(5, 67, 37, 0.9)",
       "to": "rgba(5, 67, 11, 0.9)"
@@ -46,6 +58,10 @@
     "avgTemperature": [10, 40],
     "climate": "Temperate",
     "image": "orionis.png",
+    "planetarySystemCoordinates": {
+      "x": "-3%",
+      "y": "-3%"
+    },
     "nebulasGradient": {
       "from": "rgb(1, 62, 119, 0.9)",
       "to": "rgba(5, 37, 67, 0.9)"

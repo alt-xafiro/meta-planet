@@ -12,6 +12,10 @@ export type PlanetData = {
   avgTemperature: [number, number];
   climate: Climate;
   image: string;
+  planetarySystemCoordinates: {
+    x: string;
+    y: string;
+  };
   nebulasGradient: {
     from: string;
     to: string;

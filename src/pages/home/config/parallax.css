@@ -15,7 +15,7 @@
   --parallax-stars-3-delay: var(--parallax-nebulas-delay);
   --parallax-stars-3-ease: var(--parallax-nebulas-ease);
 
-  --parallax-planetary-system-resistance: 10;
+  --parallax-planetary-system-resistance: 15;
   --parallax-planetary-system-delay: var(--parallax-nebulas-delay);
   --parallax-planetary-system-ease: var(--parallax-nebulas-ease);
 }
