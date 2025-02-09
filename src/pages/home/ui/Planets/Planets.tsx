@@ -28,7 +28,8 @@ export function Planets({ className }: PlanetsProps) {
   return (
     <div
       className={clsx(className, 'hidden', 'overflow-hidden', [
-        'min-h-[calc(100%_-_var(--planet-data-height))] w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center pb-[24px] pt-[24px]',
+        'w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center pb-[24px] pt-[24px]',
+        'sm:min-h-[calc(100%_-_var(--planet-data-height))]',
         '3xl:pb-[40px] 3xl:pt-[40px]'
       ])}
       ref={planetsRef}
