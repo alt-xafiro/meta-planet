@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { RefObject, useRef } from 'react';
 
 import './styles.css';
-import { usePlanetDataHeight } from './usePageSizes';
+import { usePlanetDataHeight } from './usePlanetDataHeight';
 
 import { Background } from './Background/Background';
 import { Header } from './Header/Header';
