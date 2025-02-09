@@ -7,6 +7,7 @@ export default {
     extend: {
       colors: {
         space: {
+          '100': '#bdc5e2',
           '500': '#1d2948',
           '600': '#141d33',
           '700': '#0f1628',
@@ -16,6 +17,10 @@ export default {
       backgroundImage: {
         'gradient-space':
           'linear-gradient(145deg, #1d2948 0%, #141d33 38%, #0f1628 51%, #050a16 100%)'
+      },
+      screens: {
+        '2lg': '1200px',
+        '3xl': '2048px'
       }
     }
   },

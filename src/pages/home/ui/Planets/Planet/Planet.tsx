@@ -1,33 +1,135 @@
 'use client';
 
-import { MouseEvent } from 'react';
+import clsx from 'clsx';
+import {
+  AnimationOptions,
+  DOMKeyframesDefinition,
+  Target,
+  useAnimate
+} from 'motion/react';
+import * as motion from 'motion/react-client';
 
-import { useCurrentPlanetStore } from '@pages/home/model/store';
+import Image from 'next/image';
+
+import { MouseEvent, useEffect } from 'react';
+
+import { usePlanetsStore } from '@pages/home/model/store';
 
 import { CustomComponentProps } from '@shared/lib';
 
-import { getPlanet } from '../../../model/planets';
+import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
+import { getPlanetData } from '../../../model/planets';
 
-type PlanetProps = CustomComponentProps & {
-  planet: string;
+const OPTIONS: AnimationOptions = {
+  bounce: 0
 };
 
-export function Planet({ className, planet }: PlanetProps) {
-  const setCurrentPlanet = useCurrentPlanetStore(
-    (state) => state.setCurrentPlanet
-  );
+const getPlanetKeyframes = (
+  position: RenderPositionValue
+): DOMKeyframesDefinition => {
+  switch (position) {
+    case RenderPosition.BEFORE_PREV:
+      return {
+        x: '-100vw',
+        scale: 0
+      };
+    case RenderPosition.PREV:
+      return {
+        x: '-48vw',
+        scale: 0.3
+      };
+    case RenderPosition.CURRENT:
+      return {
+        x: 0,
+        scale: 1
+      };
+    case RenderPosition.NEXT:
+      return {
+        x: '48vw',
+        scale: 0.3
+      };
+    case RenderPosition.AFTER_NEXT:
+      return {
+        x: '100vw',
+        scale: 0
+      };
+    default:
+      return {};
+  }
+};
 
-  const { name } = getPlanet(planet)!;
+type PlanetProps = CustomComponentProps & {
+  name: string;
+  position: RenderPositionValue;
+};
+
+export function Planet({ className, name, position }: PlanetProps) {
+  const setCurrentPlanetName = usePlanetsStore(
+    (state) => state.setCurrentPlanetName
+  );
+  const addRenderedPlanet = usePlanetsStore((state) => state.addRenderedPlanet);
+
+  const [planetRef, animate] = useAnimate<HTMLButtonElement>();
+
+  const { name: planetName, image } = getPlanetData(name)!;
+
+  useEffect(() => {
+    animate(planetRef.current, getPlanetKeyframes(position), OPTIONS);
+  }, [animate, planetRef, position]);
 
   const handleClick = (evt: MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
 
-    setCurrentPlanet(planet);
+    if (position === RenderPosition.PREV) {
+      addRenderedPlanet(RenderPosition.BEFORE_PREV);
+    }
+
+    if (position === RenderPosition.NEXT) {
+      addRenderedPlanet(RenderPosition.AFTER_NEXT);
+    }
+
+    setCurrentPlanetName(planetName);
   };
 
+  const isDisabled =
+    position === RenderPosition.CURRENT ||
+    position === RenderPosition.BEFORE_PREV ||
+    position === RenderPosition.AFTER_NEXT;
+
   return (
-    <button className={className} onClick={handleClick}>
-      {name}
-    </button>
+    <motion.button
+      className={clsx(
+        className,
+        position === RenderPosition.CURRENT ? 'z-20' : 'z-10',
+        'col-start-1 col-end-2 row-start-1 row-end-1 self-center justify-self-center',
+        [
+          'flex aspect-square h-full min-h-[280px] items-center justify-center',
+          'sm:max-w-[70vw]',
+          'lg:min-h-[360px]'
+        ],
+        'select-none',
+        'will-change-transform'
+      )}
+      ref={planetRef}
+      onClick={handleClick}
+      disabled={isDisabled}
+      initial={
+        position !== RenderPosition.CURRENT
+          ? (getPlanetKeyframes(position) as Target)
+          : {
+              scale: 0.8
+            }
+      }
+    >
+      <Image
+        src={`/images/planets/${image}`}
+        alt={`${planetName}.`}
+        width={1160}
+        height={1160}
+        priority
+        quality={95}
+        className="w-full max-w-[1160px] object-contain object-center"
+      />
+    </motion.button>
   );
 }

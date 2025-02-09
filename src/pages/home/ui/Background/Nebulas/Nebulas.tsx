@@ -4,29 +4,31 @@ import clsx from 'clsx';
 
 import { useRef } from 'react';
 
-import { getPlanet } from '@pages/home/model/planets';
+import { getPlanetData } from '@pages/home/model/planets';
 
 import { CustomComponentProps } from '@shared/lib';
 import { useMouseParallax } from '@shared/ui';
 
 import '../../../config/nebulas.css';
-import { useCurrentPlanetStore } from '../../../model/store';
+import { usePlanetsStore } from '../../../model/store';
 import './styles.css';
 import { useSetNebulas } from './useSetNebulas';
 
 type NebulasProps = CustomComponentProps;
 
 export function Nebulas({ className }: NebulasProps) {
-  const currentPlanet = useCurrentPlanetStore((state) => state.currentPlanet);
-  const { nebulasGradient } = getPlanet(currentPlanet)!;
+  const currentPlanetName = usePlanetsStore((state) => state.currentPlanetName);
+  const { nebulasGradient } = getPlanetData(currentPlanetName)!;
 
   useSetNebulas(nebulasGradient.from, nebulasGradient.to);
 
   return (
     <div className={className}>
       <div className={clsx('fixed bottom-0 left-0 h-screen w-full')}>
-        <Nebula className={clsx('-left-[20px] top-[20%] hidden lg:block')} />
-        <Nebula className={clsx('-right-[40px] top-[0%] lg:top-[37%]')} />
+        <Nebula
+          className={clsx(['-left-[20px] top-[20%] hidden', 'lg:block'])}
+        />
+        <Nebula className={clsx(['-right-[40px] top-[0%]', 'lg:top-[37%]'])} />
         <Nebula
           className={clsx('bottom-0 left-1/2 -translate-x-1/2')}
           baseTranslateX="-50%"

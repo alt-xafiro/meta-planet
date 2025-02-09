@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { useRef } from 'react';
 
 import { CustomComponentProps } from '@shared/lib';
-import { useAspectSquare, useMouseParallax } from '@shared/ui';
+import { useMouseParallax } from '@shared/ui';
 
 import '../../../config/planetary-system.css';
 import './styles.css';
@@ -17,8 +17,6 @@ type PlanetarySystemProps = CustomComponentProps;
 
 export function PlanetarySystem({ className }: PlanetarySystemProps) {
   const planetarySystemRef = useRef<HTMLDivElement>(null);
-
-  useAspectSquare(planetarySystemRef);
 
   useMouseParallax({
     ref: planetarySystemRef,
@@ -32,7 +30,7 @@ export function PlanetarySystem({ className }: PlanetarySystemProps) {
       className={clsx(
         className,
         'fixed bottom-[var(--planetary-system-bottom)] left-[var(--planetary-system-left)] translate-x-[calc(var(--planetary-system-base-translate-x))] translate-y-[calc(var(--planetary-system-base-translate-y))]',
-        'aspect-square w-full min-w-[640px] lg:w-[90%]',
+        ['aspect-square w-full min-w-[640px]', 'lg:w-[90%]'],
         'transform-gpu transition-transform duration-[var(--parallax-planetary-system-delay)] ease-[var(--parallax-planetary-system-ease)] will-change-transform'
       )}
       ref={planetarySystemRef}

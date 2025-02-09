@@ -18,10 +18,18 @@ export type PlanetData = {
   };
 };
 
-export const planets = planetsJson as unknown as PlanetData[];
+export const PLANETS = planetsJson as unknown as PlanetData[];
 
-export const getPlanet = (name: string) =>
-  planets.find((planet) => name === planet.name);
+/**
+ * @param query Either planet name or planet index.
+ */
+export const getPlanetData = (query: string | number) =>
+  PLANETS.find((planet, i) =>
+    typeof query === 'string' ? query === planet.name! : query === i
+  );
 
-export const getPlanetIndex = (name: string) =>
-  planets.findIndex((planet) => name === planet.name);
+export const getPlanetIndex = (planetName: string) =>
+  PLANETS.findIndex((planet) => planetName === planet.name);
+
+export const getPlanetName = (planetIndex: number) =>
+  PLANETS[planetIndex]!.name;

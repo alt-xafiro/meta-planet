@@ -1,3 +1,8 @@
-export type { CustomComponentProps } from './props/props';
 export { setRootProperty } from './dom/dom';
-export { getRandomNumber } from './random/random';
+export {
+  getFormattedDayLength,
+  getFormattedDiameter,
+  getFormattedTemperature
+} from './format/format';
+export { getIndexWithinLimit, getRandomNumber } from './numbers/numbers';
+export type { CustomComponentProps } from './props/props';

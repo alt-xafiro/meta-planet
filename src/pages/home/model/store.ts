@@ -1,13 +1,41 @@
 import { create } from 'zustand';
 
-import { PlanetData, planets } from './planets';
+import {
+  RenderedPlanet,
+  VirtualRenderPositionValue,
+  getInitialRenderedPlanets,
+  getNewRenderedPlanet,
+  getUpdatedRenderedPlanets
+} from '../lib/planets';
+import { PLANETS, PlanetData } from './planets';
 
-export type CurrentPlanetState = {
-  currentPlanet: PlanetData['name'];
-  setCurrentPlanet: (planet: string) => void;
+export type PlanetsState = {
+  renderedPlanets: RenderedPlanet[];
+  addRenderedPlanet: (position: VirtualRenderPositionValue) => void;
+
+  currentPlanetName: PlanetData['name'];
+  setCurrentPlanetName: (planetName: string) => void;
 };
 
-export const useCurrentPlanetStore = create<CurrentPlanetState>((set) => ({
-  currentPlanet: planets[0].name,
-  setCurrentPlanet: (planet) => set(() => ({ currentPlanet: planet }))
+export const usePlanetsStore = create<PlanetsState>((set) => ({
+  renderedPlanets: getInitialRenderedPlanets(),
+  addRenderedPlanet: (position) =>
+    set((state) => {
+      const newRenderedPlanet = getNewRenderedPlanet(
+        state.renderedPlanets,
+        position
+      );
+
+      return {
+        renderedPlanets: getUpdatedRenderedPlanets(
+          state.renderedPlanets,
+          newRenderedPlanet,
+          position
+        )
+      };
+    }),
+
+  currentPlanetName: PLANETS[0].name,
+  setCurrentPlanetName: (planetName) =>
+    set(() => ({ currentPlanetName: planetName }))
 }));
