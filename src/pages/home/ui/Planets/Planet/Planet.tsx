@@ -73,6 +73,7 @@ export function Planet({ className, name, position }: PlanetProps) {
 
   const planetImageRef = useRef<HTMLImageElement>(null);
 
+  const { name: planetName, image, dropShadowColor } = getPlanetData(name)!;
 
   usePlanetDropShadowColor(planetImageRef, dropShadowColor);
 
