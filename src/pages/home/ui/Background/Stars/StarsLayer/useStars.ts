@@ -22,7 +22,7 @@ type UseStars = UseStarsConfig & {
   wrapperRef: RefObject<HTMLElement | null>;
 };
 
-export function useStars({
+export const useStars = ({
   canvasRef,
   wrapperRef,
   offScreenRatio,
@@ -33,7 +33,7 @@ export function useStars({
   lightness,
   luminosityMax,
   luminosityMin
-}: UseStars) {
+}: UseStars) => {
   useEffect(() => {
     if (!canvasRef || !canvasRef.current || !wrapperRef || !wrapperRef.current)
       return;
@@ -239,4 +239,4 @@ export function useStars({
     speed,
     wrapperRef
   ]);
-}
+};

@@ -9,10 +9,10 @@ type UsePageSizes = {
   planetInfoRef: RefObject<HTMLDivElement | null>;
 };
 
-export function usePlanetDataHeight({
+export const usePlanetDataHeight = ({
   planetNameRef,
   planetInfoRef
-}: UsePageSizes) {
+}: UsePageSizes) => {
   useEffect(() => {
     if (
       !planetNameRef ||
@@ -51,4 +51,4 @@ export function usePlanetDataHeight({
       window.removeEventListener('resize', handleWindowResize);
     };
   }, [planetNameRef, planetInfoRef]);
-}
+};

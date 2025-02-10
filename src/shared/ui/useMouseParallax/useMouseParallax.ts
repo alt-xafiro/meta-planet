@@ -9,12 +9,12 @@ type UseParallax = {
   resistance?: string;
 };
 
-export function useMouseParallax({
+export const useMouseParallax = ({
   ref,
   baseTranslateX = '0px',
   baseTranslateY = '0px',
   resistance = '1'
-}: UseParallax) {
+}: UseParallax) => {
   useEffect(() => {
     if (!ref || !ref.current) return;
 
@@ -71,4 +71,4 @@ export function useMouseParallax({
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [ref, resistance, baseTranslateX, baseTranslateY]);
-}
+};
