@@ -1,4 +1,8 @@
+'use client';
+
 import clsx from 'clsx';
+
+import { usePlanetsSwipeEvents } from '@pages/home';
 
 import { aBeeZee } from '@shared/ui';
 
@@ -9,8 +13,10 @@ export function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const handlers = usePlanetsSwipeEvents();
+
   return (
-    <html lang="en" className="flex min-h-full">
+    <html lang="en" className="flex min-h-full" {...handlers}>
       <body
         className={clsx(
           aBeeZee.className,

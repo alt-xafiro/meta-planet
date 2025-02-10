@@ -112,6 +112,7 @@ export function Planet({ className, name, position }: PlanetProps) {
       onClick={handleClick}
       disabled={isDisabled}
       initial={getPlanetKeyframes(position) as Target}
+      tabIndex={-1}
     >
       <Image
         src={`/images/planets/${image}`}

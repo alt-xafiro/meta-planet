@@ -7,12 +7,15 @@ import { useEffect, useRef } from 'react';
 import { CustomComponentProps } from '@shared/lib';
 
 import { usePlanetsStore } from '../../model/store';
+import { usePlanetsArrowKeysEvents } from './usePlanetsArrowKeysEvents';
 
 type PlanetsProps = CustomComponentProps;
 
 export function Planets({ className }: PlanetsProps) {
   const renderedPlanets = usePlanetsStore((state) => state.renderedPlanets);
   const planetsRef = useRef<HTMLDivElement>(null);
+
+  usePlanetsArrowKeysEvents();
 
   useEffect(() => {
     // Small hack to prevent planets from rendering until JS is loaded.
