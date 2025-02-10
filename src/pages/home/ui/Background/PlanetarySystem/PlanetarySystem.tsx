@@ -8,13 +8,13 @@ import { CustomComponentProps } from '@shared/lib';
 import { useMouseParallax } from '@shared/ui';
 
 import '../../../config/planetary-system.css';
+import './styles.css';
+
 import { getPlanetData } from '../../../model/planets';
 import { usePlanetsStore } from '../../../model/store';
-import './styles.css';
-import { useMovePlanetarySystem } from './useMovePlanetarySystem';
-
 import { Microplanets } from './Microplanets/Microplanets';
 import { Orbits } from './Orbits/Orbits';
+import { useMovePlanetarySystem } from './useMovePlanetarySystem';
 
 type PlanetarySystemProps = CustomComponentProps;
 

@@ -5,13 +5,13 @@ import clsx from 'clsx';
 import { RefObject, useRef } from 'react';
 
 import './styles.css';
-import { usePlanetDataHeight } from './usePlanetDataHeight';
 
 import { Background } from './Background/Background';
 import { Header } from './Header/Header';
 import { PlanetInfo } from './PlanetInfo/PlanetInfo';
 import { PlanetName } from './PlanetName/PlanetName';
 import { Planets } from './Planets/Planets';
+import { usePlanetDataHeight } from './usePlanetDataHeight';
 
 export type PageRefs = {
   headerRef: RefObject<HTMLElement>;

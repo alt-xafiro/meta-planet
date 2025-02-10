@@ -8,9 +8,10 @@ import { CustomComponentProps } from '@shared/lib';
 import { useMouseParallax } from '@shared/ui';
 
 import '../../../config/nebulas.css';
+import './styles.css';
+
 import { getPlanetData } from '../../../model/planets';
 import { usePlanetsStore } from '../../../model/store';
-import './styles.css';
 import { useSetNebulas } from './useSetNebulas';
 
 type NebulasProps = CustomComponentProps;

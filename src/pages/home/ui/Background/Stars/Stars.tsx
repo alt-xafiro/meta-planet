@@ -7,7 +7,6 @@ import { useRef } from 'react';
 import { CustomComponentProps } from '@shared/lib';
 
 import { StarsConfig } from '../../../config/stars';
-
 import { StarsLayer } from './StarsLayer/StarsLayer';
 
 type StarsProps = CustomComponentProps;
