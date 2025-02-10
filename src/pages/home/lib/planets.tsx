@@ -38,8 +38,8 @@ export type VirtualRenderPositionValue = (typeof RenderPosition)[keyof Pick<
 export class RenderedPlanet {
   private key: string;
   private position: RenderPositionValue;
-  private planetName: string;
 
+  public planetName: string;
   public planetIndex: number; // index in the PLANETS array
   public element!: ReactElement;
 

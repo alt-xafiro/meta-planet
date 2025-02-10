@@ -1,6 +1,7 @@
 import { create } from 'zustand';
 
 import {
+  RenderPosition,
   RenderedPlanet,
   VirtualRenderPositionValue,
   getInitialRenderedPlanets,
@@ -11,14 +12,13 @@ import { PLANETS, PlanetData } from './planets';
 
 export type PlanetsState = {
   renderedPlanets: RenderedPlanet[];
-  addRenderedPlanet: (position: VirtualRenderPositionValue) => void;
-
   currentPlanetName: PlanetData['name'];
-  setCurrentPlanetName: (planetName: string) => void;
+  addRenderedPlanet: (position: VirtualRenderPositionValue) => void;
 };
 
 export const usePlanetsStore = create<PlanetsState>((set) => ({
   renderedPlanets: getInitialRenderedPlanets(),
+  currentPlanetName: PLANETS[0].name,
   addRenderedPlanet: (position) =>
     set((state) => {
       const newRenderedPlanet = getNewRenderedPlanet(
@@ -26,16 +26,16 @@ export const usePlanetsStore = create<PlanetsState>((set) => ({
         position
       );
 
-      return {
-        renderedPlanets: getUpdatedRenderedPlanets(
-          state.renderedPlanets,
-          newRenderedPlanet,
-          position
-        )
-      };
-    }),
+      const updatedRenderedPlanets = getUpdatedRenderedPlanets(
+        state.renderedPlanets,
+        newRenderedPlanet,
+        position
+      );
 
-  currentPlanetName: PLANETS[0].name,
-  setCurrentPlanetName: (planetName) =>
-    set(() => ({ currentPlanetName: planetName }))
+      return {
+        renderedPlanets: updatedRenderedPlanets,
+        currentPlanetName:
+          updatedRenderedPlanets[RenderPosition.CURRENT].planetName
+      };
+    })
 }));

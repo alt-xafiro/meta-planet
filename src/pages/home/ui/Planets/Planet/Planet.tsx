@@ -64,14 +64,10 @@ type PlanetProps = CustomComponentProps & {
 };
 
 export function Planet({ className, name, position }: PlanetProps) {
-  const setCurrentPlanetName = usePlanetsStore(
-    (state) => state.setCurrentPlanetName
-  );
-  const addRenderedPlanet = usePlanetsStore((state) => state.addRenderedPlanet);
-
   const [planetRef, animate] = useAnimate<HTMLButtonElement>();
-
   const planetImageRef = useRef<HTMLImageElement>(null);
+
+  const addRenderedPlanet = usePlanetsStore((state) => state.addRenderedPlanet);
 
   const { image, dropShadowColor } = getPlanetData(name)!;
 
@@ -91,8 +87,6 @@ export function Planet({ className, name, position }: PlanetProps) {
     if (position === RenderPosition.NEXT) {
       addRenderedPlanet(RenderPosition.AFTER_NEXT);
     }
-
-    setCurrentPlanetName(name);
   };
 
   const isDisabled =
