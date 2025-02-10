@@ -1,62 +1,20 @@
 'use client';
 
 import clsx from 'clsx';
-import {
-  AnimationOptions,
-  DOMKeyframesDefinition,
-  Target,
-  useAnimate
-} from 'motion/react';
+import { Target } from 'motion/react';
 import * as motion from 'motion/react-client';
 
 import Image from 'next/image';
 
-import { MouseEvent, useEffect, useRef } from 'react';
+import { MouseEvent, useRef } from 'react';
 
 import { CustomComponentProps } from '@shared/lib';
 
 import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
 import { getPlanetData } from '../../../model/planets';
 import { usePlanetsStore } from '../../../model/store';
+import { usePlanetAnimation } from './usePlanetAnimation';
 import { usePlanetDropShadowColor } from './usePlanetDropShadowColor';
-
-const OPTIONS: AnimationOptions = {
-  bounce: 0
-};
-
-const getPlanetKeyframes = (
-  position: RenderPositionValue
-): DOMKeyframesDefinition => {
-  switch (position) {
-    case RenderPosition.BEFORE_PREV:
-      return {
-        x: '-100vw',
-        scale: 0
-      };
-    case RenderPosition.PREV:
-      return {
-        x: '-48vw',
-        scale: 0.3
-      };
-    case RenderPosition.CURRENT:
-      return {
-        x: 0,
-        scale: 1
-      };
-    case RenderPosition.NEXT:
-      return {
-        x: '48vw',
-        scale: 0.3
-      };
-    case RenderPosition.AFTER_NEXT:
-      return {
-        x: '100vw',
-        scale: 0
-      };
-    default:
-      return {};
-  }
-};
 
 type PlanetProps = CustomComponentProps & {
   name: string;
@@ -64,7 +22,7 @@ type PlanetProps = CustomComponentProps & {
 };
 
 export function Planet({ className, name, position }: PlanetProps) {
-  const [planetRef, animate] = useAnimate<HTMLButtonElement>();
+  const { planetRef, planetKeyframes } = usePlanetAnimation(position);
   const planetImageRef = useRef<HTMLImageElement>(null);
 
   const addRenderedPlanet = usePlanetsStore((state) => state.addRenderedPlanet);
@@ -72,10 +30,6 @@ export function Planet({ className, name, position }: PlanetProps) {
   const { image, dropShadowColor } = getPlanetData(name)!;
 
   usePlanetDropShadowColor(planetImageRef, dropShadowColor);
-
-  useEffect(() => {
-    animate(planetRef.current, getPlanetKeyframes(position), OPTIONS);
-  }, [animate, planetRef, position]);
 
   const handleClick = (evt: MouseEvent<HTMLButtonElement>) => {
     evt.preventDefault();
@@ -111,7 +65,7 @@ export function Planet({ className, name, position }: PlanetProps) {
       ref={planetRef}
       onClick={handleClick}
       disabled={isDisabled}
-      initial={getPlanetKeyframes(position) as Target}
+      initial={planetKeyframes as Target}
       tabIndex={-1}
     >
       <Image
