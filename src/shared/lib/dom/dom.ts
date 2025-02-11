@@ -1,3 +1,6 @@
+export const getRootProperty = (property: string) =>
+  getComputedStyle(document.documentElement).getPropertyValue(property);
+
 export const setNodeProperty = (
   node: HTMLElement,
   property: string,

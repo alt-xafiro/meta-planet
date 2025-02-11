@@ -1,0 +1,7 @@
+:root {
+  --side-planet-name-x: calc(
+    var(--planets-side-planet-name-margin) +
+      (50vw - var(--planets-next-planet-x)) +
+      (var(--planet-current-size) * var(--planets-side-planet-scale) / 2)
+  );
+}

@@ -10,11 +10,14 @@ import { MouseEvent, useRef } from 'react';
 
 import { CustomComponentProps } from '@shared/lib';
 
+import './styles.css';
+
 import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
 import { getPlanetData } from '../../../model/planets';
 import { usePlanetsStore } from '../../../model/store';
 import { usePlanetAnimation } from './usePlanetAnimation';
 import { usePlanetDropShadowColor } from './usePlanetDropShadowColor';
+import { usePlanetSizes } from './usePlanetSizes';
 
 type PlanetProps = CustomComponentProps & {
   name: string;
@@ -24,6 +27,7 @@ type PlanetProps = CustomComponentProps & {
 export function Planet({ className, name, position }: PlanetProps) {
   const { planetRef, planetKeyframes } = usePlanetAnimation(position);
   const planetImageRef = useRef<HTMLImageElement>(null);
+  const planetImageSizesRef = usePlanetSizes(position);
 
   const addRenderedPlanet = usePlanetsStore((state) => state.addRenderedPlanet);
 
@@ -43,19 +47,17 @@ export function Planet({ className, name, position }: PlanetProps) {
     }
   };
 
-  const isDisabled =
-    position === RenderPosition.CURRENT ||
-    position === RenderPosition.BEFORE_PREV ||
-    position === RenderPosition.AFTER_NEXT;
+  const isSidePlanet =
+    position === RenderPosition.PREV || position === RenderPosition.NEXT;
 
   return (
     <motion.button
       className={clsx(
         className,
         position === RenderPosition.CURRENT ? 'z-20' : 'z-10',
-        'col-start-1 col-end-2 row-start-1 row-end-1 self-center justify-self-center',
+        'col-start-1 col-end-2 row-start-1 row-end-2 self-center justify-self-center',
         [
-          'flex aspect-square h-full min-h-[280px] items-center justify-center',
+          'flex aspect-square h-full min-h-[var(--planet-min-size)] items-center justify-center',
           'sm:max-w-[70vw]',
           'lg:min-h-[360px]'
         ],
@@ -64,7 +66,7 @@ export function Planet({ className, name, position }: PlanetProps) {
       )}
       ref={planetRef}
       onClick={handleClick}
-      disabled={isDisabled}
+      disabled={!isSidePlanet}
       initial={planetKeyframes as Target}
       tabIndex={-1}
     >
@@ -79,7 +81,10 @@ export function Planet({ className, name, position }: PlanetProps) {
           'w-full max-w-[1160px] object-contain object-center',
           'supports-[overflow-x:_clip]:drop-shadow-[-5px_6px_30px_var(--planet-drop-shadow-color)]'
         )}
-        ref={planetImageRef}
+        ref={(el) => {
+          planetImageRef.current = el;
+          planetImageSizesRef(el);
+        }}
       />
     </motion.button>
   );

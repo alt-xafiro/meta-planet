@@ -44,7 +44,7 @@ export function PlanetInfo({ className, ref }: PlanetInfoProps) {
           'md:pl-[32px] md:pr-[32px]',
           'lg:gap-[36px]',
           '2lg:gap-[48px] 2lg:pl-[40px] 2lg:pr-[40px]',
-          '3xl:gap-[60px] 3xl:pl-[50px] 3xl:pr-[50px]'
+          '6xl:gap-[60px] 6xl:pl-[50px] 6xl:pr-[50px]'
         ],
         ['text-center', 'sm:text-left']
       )}
@@ -59,7 +59,7 @@ export function PlanetInfo({ className, ref }: PlanetInfoProps) {
               'sm:items-start sm:gap-[2px] sm:self-start sm:justify-self-start',
               'md:gap-[4px]',
               '2lg:gap-[6px]',
-              '3xl:gap-[8px]'
+              '6xl:gap-[8px]'
             ])}
           >
             <dt
@@ -69,7 +69,7 @@ export function PlanetInfo({ className, ref }: PlanetInfoProps) {
                 'md:text-[14px]',
                 'lg:text-[18px]',
                 '2lg:text-[20px]',
-                '3xl:text-[25px]'
+                '6xl:text-[25px]'
               ])}
             >
               {key}
@@ -81,7 +81,7 @@ export function PlanetInfo({ className, ref }: PlanetInfoProps) {
                 'md:text-[18px]',
                 'lg:text-[20px]',
                 '2lg:text-[24px]',
-                '3xl:text-[30px]'
+                '6xl:text-[30px]'
               ])}
             >
               {getFormattedValue ? getFormattedValue(value) : value}

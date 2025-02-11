@@ -1,4 +1,4 @@
-export { setNodeProperty, setRootProperty } from './dom/dom';
+export { getRootProperty, setNodeProperty, setRootProperty } from './dom/dom';
 export {
   getFormattedDayLength,
   getFormattedDiameter,

@@ -1,0 +1,14 @@
+:root {
+  --planets-side-planet-scale: 0.3;
+  --planets-side-planet-name-margin: 2vw;
+
+  --planets-prev-planet-x: calc(-50vw - 24px);
+  --planets-next-planet-x: calc(50vw + 24px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --planets-prev-planet-x: -48vw;
+    --planets-next-planet-x: 48vw;
+  }
+}

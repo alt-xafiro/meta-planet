@@ -1,19 +1,31 @@
 'use client';
 
 import clsx from 'clsx';
+import { AnimatePresence } from 'motion/react';
 
 import { useEffect, useRef } from 'react';
 
+import { RenderPosition } from '@pages/home/lib/planets';
+
 import { CustomComponentProps } from '@shared/lib';
 
+import '../../config/planets.css';
+import './styles.css';
+
 import { usePlanetsStore } from '../../model/store';
+import { SidePlanetName } from './SidePlanetName/SidePlanetName';
 import { usePlanetsArrowKeysEvents } from './usePlanetsArrowKeysEvents';
+import { usePlanetsSizes } from './usePlanetsSizes';
 
 type PlanetsProps = CustomComponentProps;
 
 export function Planets({ className }: PlanetsProps) {
   const renderedPlanets = usePlanetsStore((state) => state.renderedPlanets);
+  const prevPlanetName = usePlanetsStore((state) => state.prevPlanetName);
+  const nextPlanetName = usePlanetsStore((state) => state.nextPlanetName);
   const planetsRef = useRef<HTMLDivElement>(null);
+
+  const { hasSideNamesEnoughSpace } = usePlanetsSizes();
 
   usePlanetsArrowKeysEvents();
 
@@ -25,7 +37,7 @@ export function Planets({ className }: PlanetsProps) {
 
     const planetsNode = planetsRef.current;
 
-    planetsNode.style.display = 'grid';
+    planetsNode.style.display = 'flex';
   }, [planetsRef]);
 
   return (
@@ -33,16 +45,42 @@ export function Planets({ className }: PlanetsProps) {
       className={clsx(
         className,
         'hidden',
-        'overflow-x-hidden supports-[overflow-x:_clip]:overflow-x-clip',
+        'relative overflow-x-hidden supports-[overflow-x:_clip]:overflow-x-clip',
         [
-          'w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center pb-[24px] pt-[24px]',
+          'flex w-full items-center justify-center',
           'sm:min-h-[calc(100%_-_var(--planet-data-height))]',
-          '3xl:pb-[40px] 3xl:pt-[40px]'
+          '6xl:pb-[40px] 6xl:pt-[40px]'
         ]
       )}
       ref={planetsRef}
     >
-      {renderedPlanets.map((renderedPlanet) => renderedPlanet.element)}
+      <div
+        className={clsx([
+          'grid h-full w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center pb-[24px] pt-[24px]',
+          '6xl:pb-[40px] 6xl:pt-[40px]'
+        ])}
+      >
+        {renderedPlanets.map((renderedPlanet) => renderedPlanet.element)}
+      </div>
+      <AnimatePresence>
+        {hasSideNamesEnoughSpace && (
+          <>
+            <SidePlanetName
+              key="prev-planet-name"
+              position={RenderPosition.PREV}
+            >
+              {prevPlanetName}
+            </SidePlanetName>
+
+            <SidePlanetName
+              key="next-planet-name"
+              position={RenderPosition.NEXT}
+            >
+              {nextPlanetName}
+            </SidePlanetName>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

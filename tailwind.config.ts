@@ -20,7 +20,10 @@ export default {
       },
       screens: {
         '2lg': '1200px',
-        '3xl': '2048px'
+        '3xl': '1320px',
+        '4xl': '1456px',
+        '5xl': '1560px',
+        '6xl': '2048px'
       }
     }
   },

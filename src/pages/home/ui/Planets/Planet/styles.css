@@ -1,0 +1,4 @@
+:root {
+  --planet-min-size: 280px;
+  --planet-current-size: var(--planet-min-size);
+}

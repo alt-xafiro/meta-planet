@@ -11,7 +11,7 @@ import { Header } from './Header/Header';
 import { PlanetInfo } from './PlanetInfo/PlanetInfo';
 import { PlanetName } from './PlanetName/PlanetName';
 import { Planets } from './Planets/Planets';
-import { usePlanetDataHeight } from './usePlanetDataHeight';
+import { useHomePageSizes } from './useHomePageSizes';
 
 export type PageRefs = {
   headerRef: RefObject<HTMLElement>;
@@ -23,7 +23,7 @@ export function Page() {
   const planetNameRef = useRef<HTMLHeadingElement>(null);
   const planetInfoRef = useRef<HTMLDivElement>(null);
 
-  usePlanetDataHeight({
+  useHomePageSizes({
     planetNameRef,
     planetInfoRef
   });
@@ -36,7 +36,7 @@ export function Page() {
         <h1 className="sr-only">Meta Planet</h1>
 
         <PlanetName
-          className={clsx(['sm:mb-[12px]', '2lg:mb-[36px]', '3xl:mb-[48px]'])}
+          className={clsx(['sm:mb-[12px]', '2lg:mb-[36px]', '6xl:mb-[48px]'])}
           ref={planetNameRef}
         />
         <PlanetInfo

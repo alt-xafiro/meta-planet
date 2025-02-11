@@ -9,7 +9,7 @@ type UsePageSizes = {
   planetInfoRef: RefObject<HTMLDivElement | null>;
 };
 
-export const usePlanetDataHeight = ({
+export const useHomePageSizes = ({
   planetNameRef,
   planetInfoRef
 }: UsePageSizes) => {

@@ -31,7 +31,7 @@ export function PlanetName({ className, ref }: PlanetNameProps) {
           'md:text-[42px]',
           'lg:text-[48px]',
           '2lg:text-[67px]',
-          '3xl:text-[83px]'
+          '6xl:text-[83px]'
         ]
       )}
       ref={ref}

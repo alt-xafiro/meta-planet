@@ -8,9 +8,6 @@ import {
 
 import { useCallback, useEffect } from 'react';
 
-import { getBreakpointValue } from '@shared/lib';
-import { useMatchMedia } from '@shared/ui';
-
 import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
 
 const OPTIONS: AnimationOptions = {
@@ -19,10 +16,6 @@ const OPTIONS: AnimationOptions = {
 
 export const usePlanetAnimation = (position: RenderPositionValue) => {
   const [planetRef, animate] = useAnimate<HTMLButtonElement>();
-
-  const isSmBreakpoint = useMatchMedia(
-    `(min-width: ${getBreakpointValue('sm')!}px)`
-  );
 
   const getPlanetKeyframes = useCallback(
     (position: RenderPositionValue): DOMKeyframesDefinition => {
@@ -34,8 +27,8 @@ export const usePlanetAnimation = (position: RenderPositionValue) => {
           };
         case RenderPosition.PREV:
           return {
-            x: isSmBreakpoint ? '-48vw' : 'calc(-50vw - 24px)',
-            scale: 0.3
+            x: 'var(--planets-prev-planet-x)',
+            scale: 'var(--planets-side-planet-scale)'
           };
         case RenderPosition.CURRENT:
           return {
@@ -44,8 +37,8 @@ export const usePlanetAnimation = (position: RenderPositionValue) => {
           };
         case RenderPosition.NEXT:
           return {
-            x: isSmBreakpoint ? '48vw' : 'calc(50vw + 24px)',
-            scale: 0.3
+            x: 'var(--planets-next-planet-x)',
+            scale: 'var(--planets-side-planet-scale)'
           };
         case RenderPosition.AFTER_NEXT:
           return {
@@ -56,7 +49,7 @@ export const usePlanetAnimation = (position: RenderPositionValue) => {
           return {};
       }
     },
-    [isSmBreakpoint]
+    []
   );
 
   useEffect(() => {

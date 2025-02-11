@@ -13,7 +13,7 @@ export function Logo({ className }: LogoProps) {
         'relative flex h-[49px] w-[110px] items-center justify-center',
         'lg:h-[60px] lg:w-[134px]',
         '2lg:h-[70px] 2lg:w-[157px]',
-        '3xl:h-[87px] 3xl:w-[196px]'
+        '6xl:h-[87px] 6xl:w-[196px]'
       ])}
     >
       <Image src="/images/logo.svg" alt="Meta Planet" fill priority />
