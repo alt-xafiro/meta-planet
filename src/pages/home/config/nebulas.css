@@ -1,3 +1,5 @@
 :root {
-  --nebulas-color-transition-duration: 1000ms;
+  --nebulas-color-transition-duration: calc(
+    var(--planets-switching-duration) / 2
+  );
 }

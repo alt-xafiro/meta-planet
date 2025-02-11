@@ -8,11 +8,9 @@ import {
 
 import { useCallback, useEffect } from 'react';
 
-import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
+import { getRootProperty } from '@shared/lib';
 
-const OPTIONS: AnimationOptions = {
-  bounce: 0
-};
+import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
 
 export const usePlanetAnimation = (position: RenderPositionValue) => {
   const [planetRef, animate] = useAnimate<HTMLButtonElement>();
@@ -53,6 +51,12 @@ export const usePlanetAnimation = (position: RenderPositionValue) => {
   );
 
   useEffect(() => {
+    const OPTIONS: AnimationOptions = {
+      bounce: 0.25,
+      type: 'spring',
+      duration: parseFloat(getRootProperty('--planets-switching-duration'))
+    };
+
     animate(planetRef.current, getPlanetKeyframes(position), OPTIONS);
   }, [animate, getPlanetKeyframes, planetRef, position]);
 
