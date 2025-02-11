@@ -42,7 +42,7 @@ export const getIndexWithinLimit = (i: number, limit: number) => {
 
 export const getRandomNumber = (a: number, b: number) => {
   if (a < 0 || b < 0) {
-    throw new Error('Values must be greater than 0.');
+    throw new Error('Values must be greater than or equal to 0.');
   }
 
   const max = Math.max(a, b);
