@@ -56,7 +56,7 @@ export function Planets({ className }: PlanetsProps) {
         'hidden',
         'relative overflow-x-hidden supports-[overflow-x:_clip]:overflow-x-clip',
         [
-          'flex w-full items-center justify-center',
+          'w-full items-center justify-center',
           'sm:min-h-[calc(100%_-_var(--planet-data-height))]',
           '6xl:pb-[40px] 6xl:pt-[40px]'
         ]
