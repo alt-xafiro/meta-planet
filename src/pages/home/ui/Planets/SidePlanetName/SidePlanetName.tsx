@@ -58,7 +58,7 @@ export function SidePlanetName({
           '5xl:text-[40px]',
           '6xl:text-[48px]'
         ],
-        'select-none'
+        'select-none outline-none'
       )}
       onClick={handleClick}
       tabIndex={-1}
