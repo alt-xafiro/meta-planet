@@ -9,7 +9,6 @@ import { CustomComponentProps } from '@shared/lib';
 import { useMatrixText } from '@shared/ui';
 
 import '../../config/planets.css';
-import './styles.css';
 
 import { RenderPosition } from '../../lib/planets';
 import { usePlanetsStore } from '../../model/store/planets-store';

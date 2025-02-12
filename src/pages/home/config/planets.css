@@ -1,5 +1,6 @@
 :root {
-  --planets-switching-duration: 0.6s;
+  --planets-animation-duration: 0.6s; /* seconds only */
+  --planets-animation-bounce: 0.25;
 
   --planets-side-planet-scale: 0.3;
   --planets-side-planet-name-margin: 2vw;

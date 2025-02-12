@@ -68,7 +68,7 @@ export const usePlanetsStore = create<PlanetsState>((set) => ({
         () => {
           set(() => ({ isDataAnimated: false }));
         },
-        parseFloat(getRootProperty('--planets-switching-duration')) *
+        parseFloat(getRootProperty('--planets-animation-duration')) *
           1000 *
           PLANETS_DATA_ANIMATION_RATE
       );

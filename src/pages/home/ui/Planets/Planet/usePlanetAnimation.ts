@@ -52,9 +52,9 @@ export const usePlanetAnimation = (position: RenderPositionValue) => {
 
   useEffect(() => {
     const OPTIONS: AnimationOptions = {
-      bounce: 0.25,
+      duration: parseFloat(getRootProperty('--planets-animation-duration')),
       type: 'spring',
-      duration: parseFloat(getRootProperty('--planets-switching-duration'))
+      bounce: parseFloat(getRootProperty('--planets-animation-bounce'))
     };
 
     animate(planetRef.current, getPlanetKeyframes(position), OPTIONS);

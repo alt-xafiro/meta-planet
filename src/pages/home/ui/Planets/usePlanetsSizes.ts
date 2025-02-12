@@ -20,7 +20,7 @@ export const usePlanetsSizes = () => {
       getRootProperty('--planets-side-planet-scale')
     );
     const sideNameMaxSize = parseFloat(
-      getRootProperty('--planets-side-name-max-size')
+      getRootProperty('--planets-side-planet-name-max-size')
     );
     const getFreeSpaceBetweenPlanets = () =>
       getWindowWidth() - computedPlanetSize * (1 + 2 * sidePlanetScale);

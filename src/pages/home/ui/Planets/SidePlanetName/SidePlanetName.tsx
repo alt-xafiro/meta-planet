@@ -43,10 +43,10 @@ export function SidePlanetName({
         [
           'absolute top-1/2',
           position === RenderPosition.PREV
-            ? 'left-[var(--side-planet-name-x)]'
-            : 'right-[var(--side-planet-name-x)]'
+            ? 'left-[var(--planets-side-planet-name-x)]'
+            : 'right-[var(--planets-side-planet-name-x)]'
         ],
-        'max-w-[var(--planets-side-name-max-size)]',
+        'max-w-[var(--planets-side-planet-name-max-size)]',
         [
           'overflow-hidden text-ellipsis text-nowrap text-left text-[10px] uppercase tracking-[0.3em]',
           'sm:text-[14px]',
