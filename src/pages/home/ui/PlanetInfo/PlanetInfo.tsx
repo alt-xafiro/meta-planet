@@ -4,35 +4,31 @@ import clsx from 'clsx';
 
 import { RefObject } from 'react';
 
-import {
-  CustomComponentProps,
-  getFormattedDayLength,
-  getFormattedDiameter,
-  getFormattedTemperature
-} from '@shared/lib';
+import { CustomComponentProps } from '@shared/lib';
+import { shareTechMono } from '@shared/ui';
 
-import { getPlanetData } from '../../model/planets';
-import { usePlanetsStore } from '../../model/store';
+import { useMatrixPlanetInfo } from './useMatrixPlanetInfo';
 
 type PlanetInfoProps = CustomComponentProps & {
   ref?: RefObject<HTMLDivElement | null>;
 };
 
 export function PlanetInfo({ className, ref }: PlanetInfoProps) {
-  const currentPlanetName = usePlanetsStore((state) => state.currentPlanetName);
-
-  const { galaxy, diameter, dayLength, avgTemperature, climate } =
-    getPlanetData(currentPlanetName)!;
-
-  type InfoValue = string | number | [number, number];
+  const [
+    galaxyMatrixText,
+    diameterMatrixText,
+    dayLengthMatrixText,
+    avgTemperatureMatrixText,
+    climateMatrixText
+  ] = useMatrixPlanetInfo();
 
   const entries = [
-    ['Galaxy', galaxy, null],
-    ['Diameter', diameter, getFormattedDiameter],
-    ['Day length', dayLength, getFormattedDayLength],
-    ['Avg temprature', avgTemperature, getFormattedTemperature],
-    ['Climate', climate, null]
-  ] as [string, InfoValue, ((value: InfoValue) => string) | null][];
+    ['Galaxy', galaxyMatrixText],
+    ['Diameter', diameterMatrixText],
+    ['Day length', dayLengthMatrixText],
+    ['Avg temprature', avgTemperatureMatrixText],
+    ['Climate', climateMatrixText]
+  ] as string[][];
 
   return (
     <div
@@ -50,10 +46,10 @@ export function PlanetInfo({ className, ref }: PlanetInfoProps) {
       )}
       ref={ref}
     >
-      {entries.map(([key, value, getFormattedValue]) => {
+      {entries.map(([property, value]) => {
         return (
           <dl
-            key={key}
+            key={property}
             className={clsx([
               'flex flex-col items-center justify-start',
               'sm:items-start sm:gap-[2px] sm:self-start sm:justify-self-start',
@@ -72,10 +68,11 @@ export function PlanetInfo({ className, ref }: PlanetInfoProps) {
                 '6xl:text-[25px]'
               ])}
             >
-              {key}
+              {property}
             </dt>
             <dd
               className={clsx([
+                shareTechMono.className,
                 'text-[20px]',
                 'sm:text-[14px]',
                 'md:text-[18px]',
@@ -84,7 +81,7 @@ export function PlanetInfo({ className, ref }: PlanetInfoProps) {
                 '6xl:text-[30px]'
               ])}
             >
-              {getFormattedValue ? getFormattedValue(value) : value}
+              {value}
             </dd>
           </dl>
         );

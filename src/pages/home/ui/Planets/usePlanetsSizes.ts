@@ -2,9 +2,9 @@
 
 import { useEffect, useState } from 'react';
 
-import { useSizesStore } from '@pages/home/model/store';
-
 import { getRootProperty } from '@shared/lib';
+
+import { useSizesStore } from '../../model/store/sizes-store';
 
 export const usePlanetsSizes = () => {
   const computedPlanetSize = useSizesStore((state) => state.computedPlanetSize);

@@ -4,7 +4,7 @@ import { ReactElement } from 'react';
 
 import { getIndexWithinLimit } from '@shared/lib';
 
-import { PLANETS, getPlanetName } from '../model/planets';
+import { PLANETS, getPlanetName } from '../model/planets/planets';
 import { Planet } from '../ui/Planets/Planet/Planet';
 
 //  There are 3 real positions: `PREV`, `CURRENT` and `NEXT`.

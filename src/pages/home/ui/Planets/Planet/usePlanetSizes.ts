@@ -4,11 +4,10 @@ import { useMeasure } from '@uidotdev/usehooks';
 
 import { useEffect } from 'react';
 
-import { useSizesStore } from '@pages/home/model/store';
-
 import { setRootProperty } from '@shared/lib';
 
 import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
+import { useSizesStore } from '../../../model/store/sizes-store';
 
 export const usePlanetSizes = (position: RenderPositionValue) => {
   const [planetImageRef, { width }] = useMeasure();

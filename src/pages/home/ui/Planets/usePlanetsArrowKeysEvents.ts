@@ -2,8 +2,8 @@
 
 import { useEffect } from 'react';
 
-import { RenderPosition } from '@pages/home/lib/planets';
-import { usePlanetsStore } from '@pages/home/model/store';
+import { RenderPosition } from '../../lib/planets';
+import { usePlanetsStore } from '../../model/store/planets-store';
 
 export const usePlanetsArrowKeysEvents = () => {
   const addRenderedPlanet = usePlanetsStore((state) => state.addRenderedPlanet);

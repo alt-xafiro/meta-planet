@@ -13,8 +13,8 @@ import { CustomComponentProps } from '@shared/lib';
 import './styles.css';
 
 import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
-import { getPlanetData } from '../../../model/planets';
-import { usePlanetsStore } from '../../../model/store';
+import { getPlanetData } from '../../../model/planets/planets';
+import { usePlanetsStore } from '../../../model/store/planets-store';
 import { usePlanetAnimation } from './usePlanetAnimation';
 import { usePlanetDropShadowColor } from './usePlanetDropShadowColor';
 import { usePlanetSizes } from './usePlanetSizes';

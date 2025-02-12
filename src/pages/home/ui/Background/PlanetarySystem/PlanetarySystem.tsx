@@ -10,8 +10,8 @@ import { useMouseParallax } from '@shared/ui';
 import '../../../config/planetary-system.css';
 import './styles.css';
 
-import { getPlanetData } from '../../../model/planets';
-import { usePlanetsStore } from '../../../model/store';
+import { getPlanetData } from '../../../model/planets/planets';
+import { usePlanetsStore } from '../../../model/store/planets-store';
 import { Microplanets } from './Microplanets/Microplanets';
 import { Orbits } from './Orbits/Orbits';
 import { useMovePlanetarySystem } from './useMovePlanetarySystem';

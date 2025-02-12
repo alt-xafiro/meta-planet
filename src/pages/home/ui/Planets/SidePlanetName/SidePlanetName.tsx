@@ -1,11 +1,12 @@
 import clsx from 'clsx';
 import * as motion from 'motion/react-client';
 
-import { RenderPosition, RenderPositionValue } from '@pages/home/lib/planets';
-
 import { CustomComponentProps } from '@shared/lib';
+import { IBMPlexMono } from '@shared/ui';
 
 import './styles.css';
+
+import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
 
 type SidePlanetNameProps = CustomComponentProps & {
   position: RenderPositionValue;
@@ -20,6 +21,7 @@ export function SidePlanetName({
     <motion.div
       className={clsx(
         className,
+        IBMPlexMono.className,
         [
           'absolute top-1/2',
           position === RenderPosition.PREV
@@ -29,8 +31,8 @@ export function SidePlanetName({
         'max-w-[var(--planets-side-name-max-size)]',
         [
           'overflow-hidden text-ellipsis text-nowrap text-left text-[10px] uppercase tracking-[0.3em]',
-          'sm:text-[16px]',
-          'md:text-[20px]',
+          'sm:text-[14px]',
+          'md:text-[18px]',
           'lg:text-[24px]',
           '2lg:text-[28px]',
           '3xl:text-[32px]',

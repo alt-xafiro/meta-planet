@@ -5,14 +5,14 @@ import { AnimatePresence } from 'motion/react';
 
 import { useEffect, useRef } from 'react';
 
-import { RenderPosition } from '@pages/home/lib/planets';
-
 import { CustomComponentProps } from '@shared/lib';
+import { useMatrixText } from '@shared/ui';
 
 import '../../config/planets.css';
 import './styles.css';
 
-import { usePlanetsStore } from '../../model/store';
+import { RenderPosition } from '../../lib/planets';
+import { usePlanetsStore } from '../../model/store/planets-store';
 import { SidePlanetName } from './SidePlanetName/SidePlanetName';
 import { usePlanetsArrowKeysEvents } from './usePlanetsArrowKeysEvents';
 import { usePlanetsSizes } from './usePlanetsSizes';
@@ -24,6 +24,16 @@ export function Planets({ className }: PlanetsProps) {
   const prevPlanetName = usePlanetsStore((state) => state.prevPlanetName);
   const nextPlanetName = usePlanetsStore((state) => state.nextPlanetName);
   const planetsRef = useRef<HTMLDivElement>(null);
+  const isDataAnimated = usePlanetsStore((state) => state.isDataAnimated);
+
+  const prevPlanetNameMatrixText = useMatrixText(
+    { text: prevPlanetName },
+    isDataAnimated
+  );
+  const nextPlanetNameMatrixText = useMatrixText(
+    { text: nextPlanetName },
+    isDataAnimated
+  );
 
   const { hasSideNamesEnoughSpace } = usePlanetsSizes();
 
@@ -69,14 +79,14 @@ export function Planets({ className }: PlanetsProps) {
               key="prev-planet-name"
               position={RenderPosition.PREV}
             >
-              {prevPlanetName}
+              {prevPlanetNameMatrixText}
             </SidePlanetName>
 
             <SidePlanetName
               key="next-planet-name"
               position={RenderPosition.NEXT}
             >
-              {nextPlanetName}
+              {nextPlanetNameMatrixText}
             </SidePlanetName>
           </>
         )}
