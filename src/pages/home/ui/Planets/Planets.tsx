@@ -11,8 +11,9 @@ import { useMatrixText } from '@shared/ui';
 import '../../config/planets.css';
 import './styles.css';
 
-import { RenderPosition } from '../../lib/planets';
+import { RenderPosition } from '../../lib/rendered-planets';
 import { usePlanetsStore } from '../../model/store/planets-store';
+import { Planet } from './Planet/Planet';
 import { SidePlanetName } from './SidePlanetName/SidePlanetName';
 import { usePlanetsArrowKeysEvents } from './usePlanetsArrowKeysEvents';
 import { usePlanetsSizes } from './usePlanetsSizes';
@@ -68,7 +69,9 @@ export function Planets({ className }: PlanetsProps) {
           'grid h-full w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center'
         )}
       >
-        {renderedPlanets.map((renderedPlanet) => renderedPlanet.element)}
+        {renderedPlanets.map(({ key, position, planetName }) => (
+          <Planet key={key} position={position} name={planetName} />
+        ))}
       </div>
       <AnimatePresence>
         {hasSideNamesEnoughSpace && (

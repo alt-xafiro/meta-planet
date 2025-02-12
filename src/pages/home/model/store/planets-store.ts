@@ -10,7 +10,7 @@ import {
   getInitialRenderedPlanets,
   getNewRenderedPlanet,
   getUpdatedRenderedPlanets
-} from '../../lib/planets';
+} from '../../lib/rendered-planets';
 import { PLANETS, PlanetData } from '../planets/planets';
 
 let dataAnimationTimer: NodeJS.Timeout;

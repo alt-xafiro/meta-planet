@@ -1,11 +1,8 @@
 import { nanoid } from 'nanoid';
 
-import { ReactElement } from 'react';
-
 import { getIndexWithinLimit } from '@shared/lib';
 
 import { PLANETS, getPlanetName } from '../model/planets/planets';
-import { Planet } from '../ui/Planets/Planet/Planet';
 
 //  There are 3 real positions: `PREV`, `CURRENT` and `NEXT`.
 //  There are 2 virtual positions: `BEFORE_PREV` and `AFTER_NEXT`.
@@ -36,32 +33,20 @@ export type VirtualRenderPositionValue = (typeof RenderPosition)[keyof Pick<
 // gives the ability to animate switching between planets.
 
 export class RenderedPlanet {
-  private key: string;
-  private position: RenderPositionValue;
-
+  public key: string;
+  public position: RenderPositionValue;
   public planetName: string;
   public planetIndex: number; // index in the PLANETS array
-  public element!: ReactElement;
 
   constructor(planetIndex: number, position: RenderPositionValue) {
     this.key = nanoid();
     this.position = position;
     this.planetName = getPlanetName(planetIndex);
     this.planetIndex = planetIndex;
-
-    this.updateElement();
-  }
-
-  private updateElement() {
-    this.element = (
-      <Planet key={this.key} position={this.position} name={this.planetName} />
-    );
   }
 
   public setPosition(position: RenderPositionValue) {
     this.position = position;
-
-    this.updateElement();
   }
 }
 

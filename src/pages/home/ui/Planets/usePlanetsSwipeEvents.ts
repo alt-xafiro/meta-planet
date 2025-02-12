@@ -2,7 +2,7 @@
 
 import { useSwipeable } from 'react-swipeable';
 
-import { RenderPosition } from '../../lib/planets';
+import { RenderPosition } from '../../lib/rendered-planets';
 import { usePlanetsStore } from '../../model/store/planets-store';
 
 export const usePlanetsSwipeEvents = () => {

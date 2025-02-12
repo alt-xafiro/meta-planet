@@ -10,7 +10,10 @@ import { useCallback, useEffect } from 'react';
 
 import { getRootProperty } from '@shared/lib';
 
-import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
+import {
+  RenderPosition,
+  RenderPositionValue
+} from '../../../lib/rendered-planets';
 
 export const usePlanetAnimation = (position: RenderPositionValue) => {
   const [planetRef, animate] = useAnimate<HTMLButtonElement>();

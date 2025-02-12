@@ -6,7 +6,10 @@ import { useEffect } from 'react';
 
 import { setRootProperty } from '@shared/lib';
 
-import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
+import {
+  RenderPosition,
+  RenderPositionValue
+} from '../../../lib/rendered-planets';
 import { useSizesStore } from '../../../model/store/sizes-store';
 
 export const usePlanetSizes = (position: RenderPositionValue) => {

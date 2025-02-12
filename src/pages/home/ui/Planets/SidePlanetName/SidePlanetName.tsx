@@ -10,7 +10,10 @@ import { IBMPlexMono } from '@shared/ui';
 
 import './styles.css';
 
-import { RenderPosition, RenderPositionValue } from '../../../lib/planets';
+import {
+  RenderPosition,
+  RenderPositionValue
+} from '../../../lib/rendered-planets';
 
 type SidePlanetNameProps = CustomComponentProps & {
   position: RenderPositionValue;
