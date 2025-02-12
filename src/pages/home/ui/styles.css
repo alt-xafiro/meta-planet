@@ -1,3 +1,11 @@
 :root {
+  --planets-margin-bottom: 8px;
+
   --planet-data-height: 0px;
+}
+
+@media (min-width: 2048px) {
+  :root {
+    --planets-margin-bottom: 0px;
+  }
 }

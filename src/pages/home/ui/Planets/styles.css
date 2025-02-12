@@ -1,0 +1,9 @@
+:root {
+  --planets-padding: 24px;
+}
+
+@media (min-width: 2048px) {
+  :root {
+    --planets-padding: 40px;
+  }
+}

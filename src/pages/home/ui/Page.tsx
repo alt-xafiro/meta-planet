@@ -43,7 +43,9 @@ export function Page() {
           className={clsx(['order-1', 'sm:order-none'])}
           ref={planetInfoRef}
         />
-        <Planets className={clsx(['mb-[8px]', 'sm:mb-0'])} />
+        <div className="flex min-h-[calc(var(--planet-min-size)_+_(var(--planets-padding)_*_2)_+_var(--planets-margin-bottom))] w-full flex-shrink-0 flex-grow">
+          <Planets className={clsx('mb-[var(--planets-margin-bottom)]')} />
+        </div>
       </main>
 
       <Background />

@@ -9,6 +9,7 @@ import { CustomComponentProps } from '@shared/lib';
 import { useMatrixText } from '@shared/ui';
 
 import '../../config/planets.css';
+import './styles.css';
 
 import { RenderPosition } from '../../lib/planets';
 import { usePlanetsStore } from '../../model/store/planets-store';
@@ -56,18 +57,16 @@ export function Planets({ className }: PlanetsProps) {
         'hidden',
         'relative overflow-x-hidden supports-[overflow-x:_clip]:overflow-x-clip',
         [
-          'w-full items-center justify-center',
-          'sm:min-h-[calc(100%_-_var(--planet-data-height))]',
-          '6xl:pb-[40px] 6xl:pt-[40px]'
+          'w-full items-center justify-center pb-[var(--planets-padding)] pt-[var(--planets-padding)]',
+          'sm:min-h-[calc(100%_-_var(--planet-data-height))]'
         ]
       )}
       ref={planetsRef}
     >
       <div
-        className={clsx([
-          'grid h-full w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center pb-[24px] pt-[24px]',
-          '6xl:pb-[40px] 6xl:pt-[40px]'
-        ])}
+        className={clsx(
+          'grid h-full w-full grid-cols-[min-content] grid-rows-[1fr] items-center justify-center'
+        )}
       >
         {renderedPlanets.map((renderedPlanet) => renderedPlanet.element)}
       </div>
