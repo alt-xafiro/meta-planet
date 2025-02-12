@@ -15,8 +15,9 @@ type PlanetNameProps = CustomComponentProps & {
 };
 
 export function PlanetName({ className, ref }: PlanetNameProps) {
-  const currentPlanetName = usePlanetsStore((state) => state.currentPlanetName);
-  const isDataAnimated = usePlanetsStore((state) => state.isDataAnimated);
+  const { currentPlanetName, isDataAnimated } = usePlanetsStore(
+    (state) => state
+  );
 
   const { name } = getPlanetData(currentPlanetName)!;
   const planetNameMatrixText = useMatrixText({ text: name }, isDataAnimated);

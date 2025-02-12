@@ -11,8 +11,9 @@ import { getPlanetData } from '../../model/planets/planets';
 import { usePlanetsStore } from '../../model/store/planets-store';
 
 export const useMatrixPlanetInfo = () => {
-  const currentPlanetName = usePlanetsStore((state) => state.currentPlanetName);
-  const isDataAnimated = usePlanetsStore((state) => state.isDataAnimated);
+  const { currentPlanetName, isDataAnimated } = usePlanetsStore(
+    (state) => state
+  );
 
   const { galaxy, diameter, dayLength, avgTemperature, climate } =
     getPlanetData(currentPlanetName)!;

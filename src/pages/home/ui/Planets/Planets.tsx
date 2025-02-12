@@ -21,11 +21,9 @@ import { usePlanetsSizes } from './usePlanetsSizes';
 type PlanetsProps = CustomComponentProps;
 
 export function Planets({ className }: PlanetsProps) {
-  const renderedPlanets = usePlanetsStore((state) => state.renderedPlanets);
-  const prevPlanetName = usePlanetsStore((state) => state.prevPlanetName);
-  const nextPlanetName = usePlanetsStore((state) => state.nextPlanetName);
+  const { renderedPlanets, prevPlanetName, nextPlanetName, isDataAnimated } =
+    usePlanetsStore((state) => state);
   const planetsRef = useRef<HTMLDivElement>(null);
-  const isDataAnimated = usePlanetsStore((state) => state.isDataAnimated);
 
   const prevPlanetNameMatrixText = useMatrixText(
     { text: prevPlanetName },
