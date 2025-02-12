@@ -76,7 +76,7 @@ export function Planet({ className, name, position }: PlanetProps) {
         width={1160}
         height={1160}
         priority
-        quality={95}
+        quality={85}
         className={clsx(
           'w-full max-w-[1160px] object-contain object-center',
           'supports-[overflow-x:_clip]:drop-shadow-[-5px_6px_30px_var(--planet-drop-shadow-color)]'
