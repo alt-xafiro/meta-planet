@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import { useRef } from 'react';
 
+import { useUserSettingsStore } from '@pages/home/model/store/user-settings-store';
+
 import { CustomComponentProps } from '@shared/lib';
 import { useMouseParallax } from '@shared/ui';
 
@@ -45,8 +47,10 @@ type NebulaProps = CustomComponentProps & {
 
 function Nebula({ className, baseTranslateX, baseTranslateY }: NebulaProps) {
   const nebulaRef = useRef<HTMLDivElement>(null);
+  const isParallax = useUserSettingsStore((state) => state.isParallax);
 
   useMouseParallax({
+    enabled: isParallax,
     ref: nebulaRef,
     baseTranslateX,
     baseTranslateY,

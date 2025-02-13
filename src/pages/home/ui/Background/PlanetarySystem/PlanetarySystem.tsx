@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import { useRef } from 'react';
 
+import { useUserSettingsStore } from '@pages/home/model/store/user-settings-store';
+
 import { CustomComponentProps } from '@shared/lib';
 import { useMouseParallax } from '@shared/ui';
 
@@ -22,6 +24,7 @@ export function PlanetarySystem({ className }: PlanetarySystemProps) {
   const planetarySystemRef = useRef<HTMLDivElement>(null);
   const currentPlanetName = usePlanetsStore((state) => state.currentPlanetName);
   const { planetarySystemCoordinates } = getPlanetData(currentPlanetName)!;
+  const isParallax = useUserSettingsStore((state) => state.isParallax);
 
   useMovePlanetarySystem(
     planetarySystemCoordinates.x,
@@ -29,6 +32,7 @@ export function PlanetarySystem({ className }: PlanetarySystemProps) {
   );
 
   useMouseParallax({
+    enabled: isParallax,
     ref: planetarySystemRef,
     baseTranslateX: 'var(--planetary-system-base-translate-x)',
     baseTranslateY: 'var(--planetary-system-base-translate-y)',

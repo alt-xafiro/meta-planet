@@ -3,6 +3,7 @@
 import { RefObject, useEffect } from 'react';
 
 type UseParallax = {
+  enabled: boolean;
   ref: RefObject<HTMLElement | null>;
   baseTranslateX?: string;
   baseTranslateY?: string;
@@ -10,12 +11,14 @@ type UseParallax = {
 };
 
 export const useMouseParallax = ({
+  enabled,
   ref,
   baseTranslateX = '0px',
   baseTranslateY = '0px',
   resistance = '1'
 }: UseParallax) => {
   useEffect(() => {
+    if (!enabled) return;
     if (!ref || !ref.current) return;
 
     const node = ref.current;
@@ -70,5 +73,5 @@ export const useMouseParallax = ({
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [ref, resistance, baseTranslateX, baseTranslateY]);
+  }, [ref, resistance, baseTranslateX, baseTranslateY, enabled]);
 };

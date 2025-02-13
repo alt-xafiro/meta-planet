@@ -1,3 +1,4 @@
+import daisyui from 'daisyui';
 import tailwindScrollbar from 'tailwind-scrollbar';
 import type { Config } from 'tailwindcss';
 
@@ -27,7 +28,12 @@ export default {
       }
     }
   },
+  daisyui: {
+    themes: false,
+    base: false
+  },
   plugins: [
+    daisyui,
     tailwindScrollbar({
       nocompatible: true,
       preferredStrategy: 'pseudoelements'

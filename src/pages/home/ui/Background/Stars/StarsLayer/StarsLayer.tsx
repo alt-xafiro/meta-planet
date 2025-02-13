@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import { RefObject, useRef } from 'react';
 
+import { useUserSettingsStore } from '@pages/home/model/store/user-settings-store';
+
 import { CustomComponentProps } from '@shared/lib';
 import { useMouseParallax } from '@shared/ui';
 
@@ -29,6 +31,7 @@ export function StarsLayer({
   resistance
 }: StarsLayerProps) {
   const starsRef = useRef<HTMLCanvasElement>(null);
+  const isParallax = useUserSettingsStore((state) => state.isParallax);
 
   useStars({
     canvasRef: starsRef,
@@ -44,6 +47,7 @@ export function StarsLayer({
   });
 
   useMouseParallax({
+    enabled: isParallax,
     ref: starsRef,
     resistance
   });

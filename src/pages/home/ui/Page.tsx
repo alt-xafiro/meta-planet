@@ -4,6 +4,8 @@ import clsx from 'clsx';
 
 import { RefObject, useRef } from 'react';
 
+import { Tooltip } from '@shared/ui';
+
 import './styles.css';
 
 import { Background } from './Background/Background';
@@ -49,6 +51,7 @@ export function Page() {
       </main>
 
       <Background />
+      <Tooltip />
     </>
   );
 }
