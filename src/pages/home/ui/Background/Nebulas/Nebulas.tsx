@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import { useUserSettingsStore } from '@pages/home/model/store/user-settings-store';
 
 import { CustomComponentProps } from '@shared/lib';
-import { useMouseParallax } from '@shared/ui';
+import { useParallax } from '@shared/ui';
 
 import '../../../config/nebulas.css';
 import './styles.css';
@@ -49,7 +49,7 @@ function Nebula({ className, baseTranslateX, baseTranslateY }: NebulaProps) {
   const nebulaRef = useRef<HTMLDivElement>(null);
   const isParallax = useUserSettingsStore((state) => state.isParallax);
 
-  useMouseParallax({
+  useParallax({
     enabled: isParallax,
     ref: nebulaRef,
     baseTranslateX,

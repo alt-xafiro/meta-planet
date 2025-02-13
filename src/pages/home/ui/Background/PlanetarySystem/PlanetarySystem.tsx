@@ -7,7 +7,7 @@ import { useRef } from 'react';
 import { useUserSettingsStore } from '@pages/home/model/store/user-settings-store';
 
 import { CustomComponentProps } from '@shared/lib';
-import { useMouseParallax } from '@shared/ui';
+import { useParallax } from '@shared/ui';
 
 import '../../../config/planetary-system.css';
 import './styles.css';
@@ -31,7 +31,7 @@ export function PlanetarySystem({ className }: PlanetarySystemProps) {
     planetarySystemCoordinates.y
   );
 
-  useMouseParallax({
+  useParallax({
     enabled: isParallax,
     ref: planetarySystemRef,
     baseTranslateX: 'var(--planetary-system-base-translate-x)',

@@ -7,7 +7,7 @@ import { RefObject, useRef } from 'react';
 import { useUserSettingsStore } from '@pages/home/model/store/user-settings-store';
 
 import { CustomComponentProps } from '@shared/lib';
-import { useMouseParallax } from '@shared/ui';
+import { useParallax } from '@shared/ui';
 
 import { UseStarsConfig, useStars } from './useStars';
 
@@ -46,7 +46,7 @@ export function StarsLayer({
     luminosityMin
   });
 
-  useMouseParallax({
+  useParallax({
     enabled: isParallax,
     ref: starsRef,
     resistance

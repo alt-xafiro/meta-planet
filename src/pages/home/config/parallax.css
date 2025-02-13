@@ -1,4 +1,6 @@
 :root {
+  --parallax-sensor-offset-rate: 20; /* integer */
+
   --parallax-nebulas-resistance: 45;
   --parallax-nebulas-delay: 1000ms;
   --parallax-nebulas-ease: cubic-bezier(0.22, 1, 0.36, 1);
