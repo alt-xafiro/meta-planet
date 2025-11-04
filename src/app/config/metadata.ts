@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://planets.xafiro.site'),
+  metadataBase: new URL('https://meta-planet.vercel.app'),
   title: 'Meta Planet',
   description: 'Outer space.',
   authors: [
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
   manifest: '/manifest.webmanifest',
   openGraph: {
     siteName: 'Meta Planet',
-    url: 'https://planets.xafiro.site',
+    url: 'https://meta-planet.vercel.app',
     images: [
       {
-        url: 'https://planets.xafiro.site/opengraph-image.png',
+        url: 'https://meta-planet.vercel.app/opengraph-image.png',
         width: 1200,
         height: 630
       }
     ]
   },
   twitter: {
-    images: ['https://planets.xafiro.site/opengraph-image.png']
+    images: ['https://meta-planet.vercel.app/opengraph-image.png']
   }
 };
